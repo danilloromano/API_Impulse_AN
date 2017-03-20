@@ -1,0 +1,35 @@
+
+.header{
+  background-color: black;
+  width: 100%;
+  height: 9%;
+  padding: 0px;
+  margin: 0px;
+}
+
+#urso-nav{
+  bottom: 15px;
+  right: 10px;
+  height: 50px;
+}
+
+.lista-nav{
+margin: 0px;
+padding: 0px;
+font-family: 'Creepster', cursive;
+text-align:inherit;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.itemLista{
+  position: relative;
+  bottom: 35px;
+  left: 70px;
+  display: inline-block;
+  margin: 0px 5px 0px 5px;
+  text-indent: center;
+}

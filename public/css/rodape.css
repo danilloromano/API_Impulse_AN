@@ -1,0 +1,29 @@
+.footer{
+  background-color: black;
+	position: fixed;
+  right: 0px;
+  margin-right: 0px;
+	width: 100%;
+	bottom: 0;
+	height: 3em;
+}
+
+#copy{
+  font-family: 'Creepster', cursive;
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  color:#9d9d9d;
+}
+
+#mooca{
+  font-family: 'Creepster', cursive;
+  position: absolute;
+  bottom: 15px;
+  left: 85%;
+  color:#9d9d9d;
+}
+
+.container {
+  padding-top: 100px!important;
+}

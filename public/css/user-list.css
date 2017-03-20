@@ -1,0 +1,92 @@
+.titulo{
+  margin-top: 20px;
+  margin-left: 48%;
+  margin-bottom:10px;
+  color: black;
+  font-size: 30px;
+  font-family: 'Creepster', cursive;
+}
+
+.btnNewClient{
+  position: relative;
+  margin-bottom: 5px;
+  left: 55%;
+  height: 30px;
+  width: 100px;
+  border-radius: 10px;
+  background-color:rgba(0, 0, 0, 0.8);
+  border: 2px solid black;
+  color:white;
+  font-family: 'Creepster', cursive;
+}
+
+.labelSearch{
+  position: relative;
+  left: 18%;
+  font-family: 'Creepster', cursive;
+  font-size: 20px;
+  top: 5px;
+
+}
+.inputSearch{
+  position: relative;
+  left: 18%;
+  width: 180px;
+  height: 25px;
+  border: 2px solid black;
+
+
+}
+
+.table{
+  border-radius: 5px;
+  width: 65%;
+  box-shadow: 10px 5px 5px rgb(113,99,99);
+  font-family: 'Creepster', cursive;
+  border: 2px solid black;
+  margin-left: 17%;
+}
+
+th{
+text-align: center;
+background-color: black;
+color: white;
+}
+
+.linhaTabela{
+color: black;
+}
+
+tr{
+  height: 30px;
+}
+tr:hover{
+background-color: rgb(211,211,211);
+}
+
+td{
+  text-align: center;
+}
+
+.alterButtom{
+height: 25px;
+width: 70px;
+background-color:rgb(73,85,210);
+border-radius: 10px;
+box-shadow: 2px 1px 1px rgb(192,192,192);
+color: white;
+font-family: 'Creepster', cursive;
+}
+.deleteButtom{
+height: 25px;
+width: 70px;
+background-color:rgb(214,48,48);
+border-radius: 10px;
+box-shadow: 2px 1px 1px rgb(192,192,192);
+color: white;
+font-family: 'Creepster', cursive;
+}
+
+.hidden{
+  display: none;
+}

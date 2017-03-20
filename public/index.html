@@ -1,0 +1,25 @@
+<html ng-app = 'impulseApp'>
+  <head>
+      <title>Impulse System</title>
+      <meta charset="utf-8">
+      <link href="https://fonts.googleapis.com/css?family=Creepster" rel="stylesheet">
+      <link href="css/header.css" rel="stylesheet" />
+      <link href="css/animate.css" rel="stylesheet" />
+      <link href="css/home.css" rel="stylesheet" />
+      <link href="css/user-list.css" rel="stylesheet" />
+      <link href="css/user-modal.css" rel="stylesheet" />
+      <link href="css/newFooter.css" rel="stylesheet" />
+      <script src="js/libs/angular.min.js"></script>
+      <script src="js/libs/angular-route.min.js"></script>
+      <!-- <script src="js/lib/angular-animate.min.js"></script> -->
+      <script src="js/libs/main.js"></script>
+      <script src="js/controllers/user-controller.js"></script>
+      <script src="js/controllers/product-controller.js"></script>
+      <script src="js/directives/myDirectives.js"></script>
+  </head>
+    <body>
+      <impulse-header></impulse-header>
+         <ng-view></ng-view>
+      <impulse-footer></impulse-footer>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<h1 class='titulo'>Usuarios</h1>
+
+<label for="search" class="labelSearch" >Procurar</label>
+<input type="text" name="search" class = "inputSearch" ng-model="filtro">
+
+<button type="button" name="button" class="btnNewClient" ng-click='newUser()'>Novo Usuario</button>
+
+<table class="table">
+  <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Endereco</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>RG</th>
+        <th>Regra</th>
+        <th>Alterar</th>
+        <th>Remover</th>
+    </tr>
+  </thead>
+    <tbody class="linhaTabela">
+      <tr ng-repeat="user in users|filter: filtro">
+        <td>{{user.first_name}}</td>
+        <td>{{user.address_name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.rg}}</td>
+        <td>{{user.role_name}}</td>
+        <td><button type="button" name="button" class="alterButtom" ng-click='updateUser(user);updateRole(role)'>Alterar</button></td>
+        <td><button type="button" name="button" class="deleteButtom">Remover</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <div ng-include="'partials/updateUserModal.html'"></div> -->
+<div ng-include="'partials/newUserModal.html'" ></div>

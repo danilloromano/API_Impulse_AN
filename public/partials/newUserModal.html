@@ -1,0 +1,86 @@
+<div class="modal" ng-class="{opened: isOpen}" id="modalForm">
+<form ng-submit="save(novoUser)">
+  <div class="containerModal">
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="first_name">Nome :</label>
+        <input type="text" class="imputForm" name="first_name" placeholder="Nome do Cliente" ng-model="novoUser.first_name">
+      </div>
+
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="last_name">Sobrenome :</label>
+        <input type="text" class="imputForm" name="last_name" placeholder="Nome do Cliente" ng-model="novoUser.last_name">
+      </div>
+
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="email">Email :</label>
+        <input type="text" class="imputForm" name="email" placeholder="Email" ng-model="novoUser.email">
+      </div>
+
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="phone">Telefone :</label>
+        <input type="number" class="imputForm" name="phone" placeholder="Telefone" ng-model="novoUser.phone">
+      </div>
+
+
+       <div class="new_form-group --flex">
+         <label class="labelFolrm" for="rg">RG :</label>
+         <input type="number" class="imputForm" name="rg" placeholder="RG" ng-model="novoUser.rg">
+       </div>
+
+       <div class="new_form-group --flex">
+         <label class="labelFolrm" for="cpf">CPF :</label>
+         <input type="number" class="imputForm" name="cpf" placeholder="CPF" ng-model="novoUser.cpf">
+       </div>
+
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="address_name">Endereco :</label>
+        <input type="text" class="imputForm" name="address_name" placeholder="Endereco" ng-model="novoUser.address_name">
+      </div>
+
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="number">Numero :</label>
+        <input type="text" class="imputForm" name="number" placeholder="numero" ng-model="novoUser.number">
+      </div>
+
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="email">Bairro :</label>
+        <input type="text" class="imputForm" name="neighborhood" placeholder="Complemento" ng-model="novoUser.neighborhood">
+      </div>
+
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="email">CEP :</label>
+        <input type="number" class="imputForm" name="cep" placeholder="CEP" ng-model="novoUser.cep">
+      </div>
+
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="addition">Complemento :</label>
+        <input type="text" class="imputForm" name="addition" placeholder="Complemento" ng-model="novoUser.addition">
+      </div>
+
+      <div class="selectModal">
+        <label class="labelFolrm" for="email">Regra :</label>
+        <select name="user_role" id="selectUser" ng-model="novoUser.user_role">
+          <option ng-repeat="role in roles" value="{{role.id}}"  >{{role.role_name}}</option>
+        </select>
+      </div>
+
+        <div class="checkboxModal">
+          <label class="labelFolrm" for="active">Status :</label>
+          <input type="checkbox" name="active" id="check" value="{{user.active}}">
+        </div>
+
+      <div class="new_form-group --flex " id="passwordModal">
+        <label class="labelFolrm" for="password">Senha :</label>
+        <input type="text" class="imputForm" name="password" placeholder="Senha" ng-model="novoUser.password">
+      </div>
+
+      <div>
+        <button type="submit" name="button" class="changeButtom" ng-click = 'saveUserAddress(novoUser)'>Salvar</button>
+      </div>
+
+      <div>
+        <button type="button" name="button" class="closeButtom" ng-click='close()'>Cancelar</button>
+      </div>
+  </div>
+</form>
+</div>

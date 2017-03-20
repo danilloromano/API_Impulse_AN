@@ -1,0 +1,25 @@
+.new-footer{
+  background-color: black;
+	position: fixed;
+  right: 0px;
+  margin-right: 0px;
+	width: 100%;
+	bottom: 0;
+	height: 3em;
+}
+
+#frase-footer1{
+  font-family: 'Creepster', cursive;
+  bottom: 25px;
+  left: 20px;
+  color: white;
+  margin-left: 20px;
+}
+
+#frase-footer2{
+  position: relative;
+  font-family: 'Creepster', cursive;
+  bottom: 35px;
+  left: 87%;
+  color: #fff;
+}

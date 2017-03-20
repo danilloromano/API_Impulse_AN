@@ -1,0 +1,21 @@
+{
+  "name": "impulse-api",
+  "version": "1.0.0",
+  "description": "back-end api for system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "Danillo Romano and Eduardo Henrrique",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "consign": "^0.1.2",
+    "express": "^4.14.1",
+    "express-validator": "^3.1.2",
+    "mysql": "^2.13.0"
+  }
+}
