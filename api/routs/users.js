@@ -85,4 +85,57 @@ module.exports = function(app){
     });
     connection.end();
   });
+
+  app.put('/users/change/user',function(req,res){
+    var error = req.validationErrors();
+
+    if (error) {
+      console.log("erros encontrados");
+      res.status(400).send(error);
+      return;
+    }
+
+    var user = req.body;
+    var rg = user.rg;
+    var connection = app.DAO.connection();
+    var userDao = new app.DAO.userDao(connection);
+
+    userDao.changeUser(user,rg,function(error,result){
+      if (error) {
+        console.log(error);
+        res.status(500).send(error)
+      }
+      console.log('user criado');
+      res.status(202).json(result);
+    });
+    connection.end();
+  });
+
+  app.put('/users/change/address',function(req,res){
+    var error = req.validationErrors();
+
+    if (error) {
+      console.log("erros encontrados");
+      res.status(400).send(error);
+      return;
+    }
+
+    var address = req.body;
+    var rg = address.user_rg;
+    var connection = app.DAO.connection();
+    var userDao = new app.DAO.userDao(connection);
+
+    userDao.changeAddress(address,rg,function(error,result){
+      if (error) {
+        console.log(error);
+        res.status(500).send(error)
+      }
+      console.log('user criado');
+      res.status(202).json(result);
+    });
+    connection.end();
+  });
+
+
+
 }

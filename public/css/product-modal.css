@@ -1,0 +1,58 @@
+.ProductModal {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 380px;
+  height: 380px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 72px;
+  left: -100%;
+  transition: all .5s ease-in;
+  /*animation: slideInLeft 0.5s forwards;*/
+}
+
+.ProductModal.opened {
+  left: 20px;
+}
+
+.ProductModal.closing {
+  animation: slideInRight 0.5s forwards;
+}
+
+
+
+.productChangeButtom{
+position: relative;
+margin-left: 10px;
+height: 25px;
+width: 70px;
+top: 30px;
+background-color:rgba(0, 0, 0, 0.5);
+border-radius: 10px;
+box-shadow: 2px 1px 1px rgb(192,192,192);
+color: white;
+font-family: 'Creepster', cursive;
+}
+
+.productCloseButtom{
+position: relative;
+left:  300px;
+height: 25px;
+width: 70px;
+background-color:rgba(192,192,192,0.2);
+border-radius: 10px;
+box-shadow: 2px 1px 1px rgb(192,192,192);
+color: black;
+font-family: 'Creepster', cursive;
+
+}
+
+#selectProduct{
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 100px;
+  margin-bottom: 10px;
+  margin-left: 45px;
+  height: 25px;
+
+}

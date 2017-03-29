@@ -15,7 +15,6 @@
         <th>RG</th>
         <th>Regra</th>
         <th>Alterar</th>
-        <th>Remover</th>
     </tr>
   </thead>
     <tbody class="linhaTabela">
@@ -26,11 +25,10 @@
         <td>{{user.phone}}</td>
         <td>{{user.rg}}</td>
         <td>{{user.role_name}}</td>
-        <td><button type="button" name="button" class="alterButtom" ng-click='updateUser(user);updateRole(role)'>Alterar</button></td>
-        <td><button type="button" name="button" class="deleteButtom">Remover</button></td>
+        <td><button type="button" name="button" class="alterButtom" ng-click='updateUser()'>Alterar</button></td>
+        <!-- <td><button type="button" name="button" class="deleteButtom">Remover</button></td> -->
     </tr>
   </tbody>
 </table>
-
-<!-- <div ng-include="'partials/updateUserModal.html'"></div> -->
+<!-- <div ng-include="'partials/updateUserModal.html'" ></div> -->
 <div ng-include="'partials/newUserModal.html'" ></div>

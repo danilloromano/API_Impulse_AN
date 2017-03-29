@@ -58,15 +58,15 @@
       </div>
 
       <div class="selectModal">
-        <label class="labelFolrm" for="email">Regra :</label>
+        <label class="labelFolrm" for="user_role">Regra :</label>
         <select name="user_role" id="selectUser" ng-model="novoUser.user_role">
-          <option ng-repeat="role in roles" value="{{role.id}}"  >{{role.role_name}}</option>
+          <option ng-repeat="role in roles" value="{{role.id}}">{{role.role_name}}</option>
         </select>
       </div>
 
         <div class="checkboxModal">
           <label class="labelFolrm" for="active">Status :</label>
-          <input type="checkbox" name="active" id="check" value="{{user.active}}">
+          <input type="checkbox" name="active" id="check" ng-model="novoUser.active.value">
         </div>
 
       <div class="new_form-group --flex " id="passwordModal">

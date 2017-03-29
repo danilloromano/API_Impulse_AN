@@ -1,7 +1,7 @@
 module.exports = function(app){
 
   app.get('/productData', function(req, res){
-    console.log('Recebida requisicao na porta 3000.');
+    console.log('Recebida requisicao de produtos.');
     var connection = app.DAO.connection();
     var productDao = new app.DAO.productDao(connection);
     var product = [];
@@ -13,6 +13,73 @@ module.exports = function(app){
       }
       res.status(200).send(JSON.stringify(result));
     });
+    connection.end();
+  });
+
+
+  app.get('/productData/category', function(req, res){
+    console.log('Recebida requisicao de categorias.');
+    var connection = app.DAO.connection();
+    var productDao = new app.DAO.productDao(connection);
+    var category = [];
+    productDao.listCategory(category,function(error,result){
+      if (error) {
+        console.log(error);
+        res.status(500).send(error);
+        return;
+      }
+      res.status(200).send(JSON.stringify(result));
+    });
+    connection.end();
+  });
+
+  app.post('/products/newProduct',function(req,res){
+    var error = req.validationErrors();
+
+    if (error) {
+      console.log("erros encontrados");
+      res.status(400).send(error);
+      return;
+    }
+
+    var novoProduto = req.body;
+    var connection = app.DAO.connection();
+    var productDao =  new app.DAO.productDao(connection);
+
+    productDao.saveProduct(novoProduto,function(error,result){
+      if (error) {
+        console.log(error);
+        res.status(500).send(error)
+      }
+      console.log('Produto criado');
+      res.status(201).json(result);
+    });
+    connection.end();
+  });
+
+  app.delete('/products/deleteProduct/:id',function(req,res){
+
+    var error = req.validationErrors();
+
+    if (error) {
+      console.log("erros encontrados");
+      res.status(400).send(error);
+      return;
+    }
+
+    var id = req.params.id;
+    var connection = app.DAO.connection();
+    var productDao =  new app.DAO.productDao(connection);
+
+    productDao.deleteProduct(id,function(error,result){
+      if (error) {
+        console.log(error);
+        res.status(500).send(error)
+      }
+      console.log('Produto deletado');
+      res.status(203);
+    });
+    connection.end();
   });
 
 }

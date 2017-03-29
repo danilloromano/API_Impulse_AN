@@ -8,6 +8,17 @@ angular.module('impulseApp').controller('UserController',function($scope,$http,$
   $scope.showUpdateUserModal = false;
   $scope.showNewUserModal = false;
   $scope.isOpen = false;
+  $scope.novoUser.active = {
+    value : true
+  };
+
+  function pegaCheck(){
+    objeto = $scope.novoUser.active.value;
+    valorX = objeto.value;
+    console.log("funcionei");
+    console.log(valorX);
+    return objeto;
+  }
 
   var promise = $http.get('/usersData');
   promise.then(function(result){
@@ -29,14 +40,12 @@ angular.module('impulseApp').controller('UserController',function($scope,$http,$
 
   $scope.updateUser = function(user){
     $scope.showUpdateUserModal = true;
+    $scope.isOpen = true;
     $scope.userInEdition = user;
   }
 
     $scope.closeModal = function($event,element){
     $scope.showUpdateUserModal = false;
-  }
-
-    $scope.openModal = function(element){
   }
 
   $scope.newUser = function(){
@@ -50,7 +59,6 @@ angular.module('impulseApp').controller('UserController',function($scope,$http,$
     setTimeout( function() {
       $scope.showNewUserModal = false;
     }, 500)
-
   }
 
   $scope.save = function(novoUser){
@@ -64,6 +72,7 @@ angular.module('impulseApp').controller('UserController',function($scope,$http,$
       password: novoUser.password,
       phone: novoUser.phone,
       user_role: novoUser.user_role,
+      active: pegaCheck(),
       birth:'2017/12/12'
     };
     console.log($scope.userInSave);
@@ -96,4 +105,45 @@ angular.module('impulseApp').controller('UserController',function($scope,$http,$
     });
   }
 
+  $scope.changeUser = function(userInEdition){
+    $scope.userInChange = {
+      first_name: userInEdition.first_name,
+      last_name: userInEdition.last_name,
+      email: userInEdition.email,
+      cpf: userInEdition.cpf,
+      rg: userInEdition.rg,
+      password: userInEdition.password,
+      phone: userInEdition.phone,
+      user_role: userInEdition.user_role,
+      active: userInEdition.active,
+      birth:'2017/12/12'
+    };
+
+    var promise = $http.put('/users/user/change',$scope.userInChange,$scope.userInChange.rg);
+    promise.then(function(){
+      $scope.userInChange = {};
+      console.log($scope.userInChange);
+    }).catch(function(error){
+      console.log(error);
+    });
+  }
+
+  $scope.changeAddress = function(userInEdition){
+    $scope.addressInChange = {
+      address_name :userInEdition.address_name,
+      neighborhood : userInEdition.neighborhood,
+      number : userInEdition.number,
+      cep : userInEdition.cep,
+      addition : userInEdition.addition,
+      user_rg  : userInEdition.rg
+    };
+
+    var promise = $http.put('/users/user/change',$scope.addressInChange,$scope.addressInChange.user_rg);
+    promise.then(function(){
+      $scope.addressInChange = {};
+      console.log($scope.addressInChange);
+    }).catch(function(error){
+      console.log(error);
+    });
+  }
 });

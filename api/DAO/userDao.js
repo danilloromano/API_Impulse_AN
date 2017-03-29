@@ -16,8 +16,12 @@ userDao.prototype.list = function(user,callback) {
 , user, callback);
 }
 
-userDao.prototype.remove = function(rg,callback){
-  this._connection.query("delete from users where rg = ?",[rg],callback);
+userDao.prototype.changeUser = function(user,rg,callback){
+  this._connection.query("UPDATE users set ? WHERE rg = ? ",[user,rg],callback);
+}
+
+userDao.prototype.changeAddress = function(user,address,rg,callback){
+  this._connection.query("UPDATE address set ? WHERE rg = ? ",[address,rg],callback);
 }
 
 // userDao.prototype.alteraProduto = function(user,callback) {

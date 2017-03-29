@@ -8,6 +8,19 @@ productDao.prototype.list = function(product,callback) {
 , product, callback);
 }
 
+productDao.prototype.listCategory = function(category,callback) {
+    this._connection.query("select * from categorias", category, callback);
+}
+
+productDao.prototype.saveProduct = function(novoProduto,callback) {
+    this._connection.query('INSERT INTO produtos SET ?',novoProduto, callback);
+    console.log(this._connection.query);
+}
+
+productDao.prototype.deleteProduct = function(id,callback) {
+    this._connection.query('delete from produtos where id = ?',[id], callback);
+}
+
 module.exports = function(){
     return productDao;
 };
