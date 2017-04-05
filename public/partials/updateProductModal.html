@@ -1,0 +1,61 @@
+<div class="ProductModal" ng-class="{opened: Open}">
+<form ng-submit="updateProduct(product)">
+  <div class="containerModal">
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="first_name">Nome :</label>
+        <input type="text" class="imputForm" name="nome" placeholder="Nome do Produto" ng-model="productInEdition.nome">
+      </div>
+
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="marca">Marca :</label>
+        <input type="text" class="imputForm" name="marca" placeholder="Marca do Produto" ng-model="productInEdition.marca">
+      </div>
+
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="custo">Custo :</label>
+        <input type="number" class="imputForm" name="custo" placeholder="Custo de Compra" ng-model="productInEdition.custo">
+      </div>
+
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="venda">Venda :</label>
+        <input type="number" class="imputForm" name="venda" placeholder="Valor de venda" ng-model="productInEdition.venda">
+      </div>
+
+
+       <div class="new_form-group --flex">
+         <label class="labelFolrm" for="quantidade">Quantidade :</label>
+         <input type="number" class="imputForm" name="quantidade" placeholder="Quantidade" ng-model="productInEdition.quantidade">
+       </div>
+
+       <div class="new_form-group --flex">
+         <label class="labelFolrm" for="descricao">Descricao :</label>
+         <input type="text" class="imputForm" name="descricao" placeholder="descricao" ng-model="productInEdition.descricao">
+       </div>
+
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="validade">Validade :</label>
+        <input type="date" class="imputForm" name="validade" placeholder="Data de Validade" ng-model="productInEdition.validade">
+      </div>
+
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="data">Data :</label>
+        <input type="date" class="imputForm" name="data" placeholder="Data de Cadastro" ng-model="OpenproductInEdition.data">
+      </div>
+
+      <div class="selectModal">
+        <label class="labelFolrm" for="categoria">Categoria :</label>
+        <select name="categoria" id="selectProduct" ng-model="productInEdition.categoria_id">
+          <option ng-repeat="category in categorys" value="{{category.id}}">{{category.nome}}</option>
+        </select>
+      </div>
+
+      <div>
+        <button type="submit" name="button" class="productChangeButtom">Salvar</button>
+      </div>
+
+      <div>
+        <button type="button" name="button" class="productCloseButtom" ng-click='closeUpdateProductModal()'>Cancelar</button>
+      </div>
+  </div>
+</form>
+</div>

@@ -17,6 +17,11 @@ productDao.prototype.saveProduct = function(novoProduto,callback) {
     console.log(this._connection.query);
 }
 
+productDao.prototype.updateProduct = function(Produto,callback) {
+    this._connection.query("UPDATE products set ? WHERE id = ? ",[id],Produto, callback);
+    console.log(this._connection.query);
+}
+
 productDao.prototype.deleteProduct = function(id,callback) {
     this._connection.query('delete from produtos where id = ?',[id], callback);
 }

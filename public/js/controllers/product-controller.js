@@ -3,14 +3,15 @@ angular.module('impulseApp').controller('ProductController',function($scope,$htt
   $scope.products = [];
   $scope.categorys = [];
 	$scope.filtro = '';
+  $scope.showUpdateProductModal = false;
   $scope.showNewProoductModal = false;
   $scope.productInSave = {};
+  $scope.productInEdition = {};
   $scope.novoProduto = {};
 
   var promise = $http.get('/productData');
     promise.then(function(result){
       $scope.products = result.data;
-      console.log($scope.products);
       }).catch(function(error){
         console.log(error);
       });
@@ -21,6 +22,20 @@ angular.module('impulseApp').controller('ProductController',function($scope,$htt
   }).catch(function(error){
     console.log(error);
   });
+
+  $scope.openUpdateProductModal = function(product){
+    $scope.Open = true;
+    $scope.showUpdateProductModal = true;
+    $scope.productInEdition = product;
+  }
+
+  $scope.closeUpdateProductModal = function(){
+    $scope.Open = false;
+    $scope.Produto = "";
+    setTimeout( function() {
+      $scope.showUpdateProductModal = false;
+    }, 500)
+  }
 
   $scope.openNewProduct = function(){
     $scope.isOpen = true;
@@ -38,7 +53,16 @@ angular.module('impulseApp').controller('ProductController',function($scope,$htt
 function convertDate(date) {
   function pad(s) { return (s < 10) ? '0' + s : s; }
   var d = new Date(date);
-  return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
+  return [pad(d.getFullYear()), pad(d.getMonth()+1),d.getDate()].join('-');
+}
+
+$scope.revertDate = function (date) {
+  var d=new Date(date.split("/").reverse().join("-"));
+  var dd=d.getDate();
+  var mm=d.getMonth()+1;
+  var yy=d.getFullYear();
+  var newdate = yy+"/"+mm+"/"+dd;
+  return newdate;
 }
 
   $scope.saveProduct = function(novoProduto){
@@ -54,29 +78,34 @@ function convertDate(date) {
       lucro: (novoProduto.venda - novoProduto.custo) * novoProduto.quantidade,
       data:convertDate(novoProduto.data)
     };
-      console.log($scope.productInSave);
       var promise = $http.post('/products/newProduct', $scope.productInSave);
       promise.then(function(){
-      // $scope.novoProduto = "";
-      console.log($scope.productInSave);
+      $scope.products.push($scope.productInSave);
+      // $scope.novoProduto = '';
       }).catch(function(error){
         console.log(error);
       });
   }
 
     $scope.deleteProduct = function(product){
-      console.log(product);
-      console.log($scope.products);
       var id = product.id;
+      var productIndex = $scope.products.indexOf(product);
+      $scope.products.splice(productIndex, 1);
       var promise = $http.delete('/products/deleteProduct/'+id);
-      promise.then(function(){
-        // $scope.products.splice(product.indexOf(),1);
-      }).catch(function(error){
-        console.log(error);
-      });
-      $route.reload();
+        promise.then(function(){
+          }).catch(function(error){
+              console.log(error);
+              });
     }
 
-
+    $scope.updateProduct = function(product){
+      var id = product.id;
+      var promise = $http.put('/products/updateProduct/',id,product);
+        promise.then(function(){
+          console.log(product);
+        }).catch(function(error){
+            console.log(error);
+            });
+    }
 
 });

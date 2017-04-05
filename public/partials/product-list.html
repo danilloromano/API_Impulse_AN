@@ -30,10 +30,11 @@
         <td>{{product.venda}}</td>
         <td>{{product.lucro}}</td>
         <td>{{product.validade}}</td>
-        <td><button type="button" name="button" class="alterButtom" >Alterar</button></td>
+        <td><button type="button" name="button" class="alterButtom"  ng-click='openUpdateProductModal(product)'>Alterar</button></td>
         <td><button type="button" name="button" class="deleteButtom" ng-click='deleteProduct(product)'>Remover</button></td>
     </tr>
   </tbody>
 </table>
 
 <div ng-include="'partials/newProductModal.html'" ></div>
+<div ng-include="'partials/updateProductModal.html'" ></div>
