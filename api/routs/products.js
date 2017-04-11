@@ -82,4 +82,21 @@ module.exports = function(app){
     connection.end();
   });
 
+  app.put('/products/updateProduct/:id',function(req,res){
+    let id = req.params.id;
+    let Produto = req.body;
+    console.log(Produto);
+    var connection = app.DAO.connection();
+    var productDao =  new app.DAO.productDao(connection);
+      productDao.updateProduct(Produto,id,function(error,result){
+        if (error) {
+          console.log(error);
+          res.status(500).send(error)
+        }
+        console.log('Produto deletado');
+        res.status(203);
+      });
+      connection.end();
+    });
+
 }

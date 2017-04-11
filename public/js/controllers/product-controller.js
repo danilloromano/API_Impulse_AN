@@ -7,6 +7,7 @@ angular.module('impulseApp').controller('ProductController',function($scope,$htt
   $scope.showNewProoductModal = false;
   $scope.productInSave = {};
   $scope.productInEdition = {};
+  $scope.productInchange = {};
   $scope.novoProduto = {};
 
   var promise = $http.get('/productData');
@@ -56,14 +57,27 @@ function convertDate(date) {
   return [pad(d.getFullYear()), pad(d.getMonth()+1),d.getDate()].join('-');
 }
 
-$scope.revertDate = function (date) {
-  var d=new Date(date.split("/").reverse().join("-"));
-  var dd=d.getDate();
-  var mm=d.getMonth()+1;
-  var yy=d.getFullYear();
-  var newdate = yy+"/"+mm+"/"+dd;
-  return newdate;
+function twoDigits(d) {
+    if(0 <= d && d < 10) return "0" + d.toString();
+    if(-10 < d && d < 0) return "-0" + (-1*d).toString();
+    return d.toString();
 }
+
+function mysqlDateFormat(data) {
+    return data.getUTCFullYear() + "-" +
+     twoDigits(1 + data.getUTCMonth()) + "-" +
+     twoDigits(data.getUTCDate()) + " " +
+     twoDigits(data.getUTCHours()) + ":" +
+     twoDigits(data.getUTCMinutes()) + ":" +
+     twoDigits(data.getUTCSeconds());
+};
+
+  function dataInput(data) {
+    let formateData = new Date(data);
+    return formateData;
+    console.log(formateData);
+  }
+
 
   $scope.saveProduct = function(novoProduto){
     $scope.productInSave = {
@@ -71,17 +85,21 @@ $scope.revertDate = function (date) {
       marca: novoProduto.marca,
       custo: novoProduto.custo,
       venda: novoProduto.venda,
-      validade: convertDate(novoProduto.validade),
+      validade: convertDate(dataInput(novoProduto.validade)),
       categoria_id: novoProduto.categoria_id,
       descricao: novoProduto.descricao,
       quantidade: novoProduto.quantidade,
       lucro: (novoProduto.venda - novoProduto.custo) * novoProduto.quantidade,
-      data:convertDate(novoProduto.data)
+      data:mysqlDateFormat(new Date())
     };
+
+    console.log($scope.productInSave);
+
+
       var promise = $http.post('/products/newProduct', $scope.productInSave);
       promise.then(function(){
+        console.log($scope.productInSave);
       $scope.products.push($scope.productInSave);
-      // $scope.novoProduto = '';
       }).catch(function(error){
         console.log(error);
       });
@@ -98,11 +116,30 @@ $scope.revertDate = function (date) {
               });
     }
 
-    $scope.updateProduct = function(product){
-      var id = product.id;
-      var promise = $http.put('/products/updateProduct/',id,product);
+    $scope.updateProduct = function(){
+
+      var id = $scope.productInEdition.id;
+      console.log("o id do prodto e " + id);
+
+$scope.productInChange={
+  nome: $scope.productInEdition.nome,
+  marca: $scope.productInEdition.marca,
+  custo: $scope.productInEdition.custo,
+  venda: $scope.productInEdition.venda,
+  validade: convertDate(dataInput($scope.productInEdition.validade)),
+  categoria_id: $scope.productInEdition.categoria_id,
+  descricao: $scope.productInEdition.descricao,
+  quantidade: $scope.productInEdition.quantidade,
+  lucro: ($scope.productInEdition.venda - $scope.productInEdition.custo) * $scope.productInEdition.quantidade,
+  // data:new Date($scope.productInEdition.data)
+
+
+}
+console.log($scope.productInChange);
+
+      var promise = $http.put('/products/updateProduct/'+id, $scope.productInChange);
         promise.then(function(){
-          console.log(product);
+          console.log($scope.productInChange);
         }).catch(function(error){
             console.log(error);
             });
