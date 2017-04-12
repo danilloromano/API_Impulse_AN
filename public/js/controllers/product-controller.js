@@ -13,6 +13,12 @@ angular.module('impulseApp').controller('ProductController',function($scope,$htt
   var promise = $http.get('/productData');
     promise.then(function(result){
       $scope.products = result.data;
+      $scope.products.forEach(function(product){
+        var validade  = convertDate(product.validade);
+        product.validade = validade;
+      });
+
+
       }).catch(function(error){
         console.log(error);
       });
@@ -51,9 +57,9 @@ angular.module('impulseApp').controller('ProductController',function($scope,$htt
     }, 500)
   }
 
-function convertDate(date) {
+function convertDate(data) {
   function pad(s) { return (s < 10) ? '0' + s : s; }
-  var d = new Date(date);
+  var d = new Date(data);
   return [pad(d.getFullYear()), pad(d.getMonth()+1),d.getDate()].join('-');
 }
 
@@ -93,9 +99,6 @@ function mysqlDateFormat(data) {
       data:mysqlDateFormat(new Date())
     };
 
-    console.log($scope.productInSave);
-
-
       var promise = $http.post('/products/newProduct', $scope.productInSave);
       promise.then(function(){
         console.log($scope.productInSave);
@@ -116,26 +119,32 @@ function mysqlDateFormat(data) {
               });
     }
 
+
+    function DataOriginFormat(novaData){
+       let newDate  = new Date(novaData);
+       return newDate.toString().split('-');
+       console.log(newDate);
+    }
+
+
     $scope.updateProduct = function(){
 
       var id = $scope.productInEdition.id;
       console.log("o id do prodto e " + id);
 
-$scope.productInChange={
-  nome: $scope.productInEdition.nome,
-  marca: $scope.productInEdition.marca,
-  custo: $scope.productInEdition.custo,
-  venda: $scope.productInEdition.venda,
-  validade: convertDate(dataInput($scope.productInEdition.validade)),
-  categoria_id: $scope.productInEdition.categoria_id,
-  descricao: $scope.productInEdition.descricao,
-  quantidade: $scope.productInEdition.quantidade,
-  lucro: ($scope.productInEdition.venda - $scope.productInEdition.custo) * $scope.productInEdition.quantidade,
-  // data:new Date($scope.productInEdition.data)
+      $scope.productInChange={
+        nome: $scope.productInEdition.nome,
+        marca: $scope.productInEdition.marca,
+        custo: $scope.productInEdition.custo,
+        venda: $scope.productInEdition.venda,
+        validade: $scope.productInEdition.validade,
+        categoria_id: $scope.productInEdition.categoria_id,
+        descricao: $scope.productInEdition.descricao,
+        quantidade: $scope.productInEdition.quantidade,
+        lucro: ($scope.productInEdition.venda - $scope.productInEdition.custo) * $scope.productInEdition.quantidade,
+      }
 
-
-}
-console.log($scope.productInChange);
+      console.log($scope.productInChange);
 
       var promise = $http.put('/products/updateProduct/'+id, $scope.productInChange);
         promise.then(function(){

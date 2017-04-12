@@ -12,6 +12,7 @@
   "author": "Danillo Romano and Eduardo Henrrique",
   "license": "ISC",
   "dependencies": {
+    "angular-input-masks": "^2.5.0",
     "body-parser": "^1.16.1",
     "consign": "^0.1.2",
     "express": "^4.14.1",
