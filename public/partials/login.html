@@ -1,0 +1,25 @@
+
+<p class="">{{message}}</p>
+
+<div>
+<img class="ursoPrincipal" src="imagens/urso-impulse-quadrado.png"/>
+</div>
+
+    <form class="loginForm" ng-submit = "login()">
+
+      <div class = "formItens">
+        <div class="">
+          <label for="email" class="labelFolrmImput">Email :</label>
+          <input type="email" name="email" class="formLoginImput"required="" placeholder="insira seu email" ng-model="user.email">
+        </div>
+
+        <div class="">
+          <label for="password" class="labelFolrmImput">Senha :</label>
+          <input type="password" name="password" class="formLoginImput" placeholder="insira sua senha" required="" ng-model="user.password">
+        </div>
+
+          <div class="">
+            <button type="submit" class="loginButtom">Login</button>
+          </div>
+       </div>
+    </form>

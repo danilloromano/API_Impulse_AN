@@ -1,0 +1,54 @@
+
+.ursoPrincipal{
+  position: absolute;
+  top: 100px;
+  width: 350px;
+  height: 300px;
+  left:35%;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.loginForm{
+    position: absolute;
+    display: block;
+    width: 350px;
+    height: 120px;
+    left: 478px;
+    top: 400px;
+    background-color: black;
+    color:#9D9D9D;
+    border: none;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.formLoginImput{
+  width: 250px;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+.labelFolrmImput{
+  font-family: 'Creepster', cursive;
+  font-size: 15px;
+  margin-left: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+#msgLogin{
+  position: relative;
+  bottom: 10px;
+}
+
+.loginButtom{
+position: relative;
+left:  130px;
+height: 25px;
+width: 100px;
+background-color:rgba(192,192,192,0.1);
+border-radius: 10px;
+box-shadow: 2px 1px 1px rgb(192,192,192);
+color: white;
+font-family: 'Creepster', cursive;
+
+}

@@ -14,6 +14,11 @@ angular.module("impulseApp",['myDirectives','ngRoute'])
             templateUrl: 'partials/product-list.html',
             controller: 'ProductController'
         });
-        
-        $routeProvider.otherwise({redirectTo: '/home'});
+
+        $routeProvider.when('/login', {
+            templateUrl: 'partials/login.html',
+            controller: 'LoginController'
+        });
+
+        $routeProvider.otherwise({redirectTo: '/login'});
     });
