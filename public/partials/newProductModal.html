@@ -3,44 +3,39 @@
   <div class="containerModal">
       <div class="new_form-group --flex">
         <label class="labelFolrm" for="first_name">Nome :</label>
-        <input type="text" class="imputForm" name="nome" placeholder="Nome do Produto" ng-model="novoProduto.nome">
+        <input type="text" class="imputForm"  id="nome" name="nome" placeholder="Nome do Produto" ng-model="novoProduto.nome">
       </div>
 
       <div class="new_form-group --flex">
         <label class="labelFolrm" for="marca">Marca :</label>
-        <input type="text" class="imputForm" name="marca" placeholder="Marca do Produto" ng-model="novoProduto.marca">
+        <input type="text" class="imputForm" id="marca" name="marca" placeholder="Marca do Produto" ng-model="novoProduto.marca">
       </div>
 
       <div class="new_form-group --flex">
         <label class="labelFolrm" for="custo">Custo :</label>
-        <input type="number" class="imputForm" name="custo" placeholder="Custo de Compra" ng-model="novoProduto.custo">
+        <input type="number" step=0.01 class="imputForm" id="custo" name="custo" placeholder="Custo de Compra" ng-model="novoProduto.custo">
       </div>
 
       <div class="new_form-group --flex">
         <label class="labelFolrm" for="venda">Venda :</label>
-        <input type="number" class="imputForm" name="venda" placeholder="Valor de venda" ng-model="novoProduto.venda">
+        <input type="number" step=0.01 class="imputForm" id="venda" name="venda" placeholder="Valor de venda" ng-model="novoProduto.venda">
       </div>
 
 
        <div class="new_form-group --flex">
          <label class="labelFolrm" for="quantidade">Quantidade :</label>
-         <input type="number" class="imputForm" name="quantidade" placeholder="Quantidade" ng-model="novoProduto.quantidade">
+         <input type="number" class="imputForm" id="quantidade" name="quantidade" placeholder="Quantidade" ng-model="novoProduto.quantidade">
        </div>
 
        <div class="new_form-group --flex">
          <label class="labelFolrm" for="descricao">Descricao :</label>
-         <input type="text" class="imputForm" name="descricao" placeholder="descricao" ng-model="novoProduto.descricao">
+         <input type="text" class="imputForm" id="descricao" name="descricao" placeholder="descricao" ng-model="novoProduto.descricao">
        </div>
 
       <div class="new_form-group --flex">
         <label class="labelFolrm" for="validade">Validade :</label>
-        <input type="date" class="imputForm" name="validade" placeholder="Data de Validade" ng-model="novoProduto.validade">
+        <input type="date" class="imputForm" id="validade" name="validade" placeholder="Data de Validade" ng-model="novoProduto.validade">
       </div>
-
-      <!-- <div class="new_form-group --flex">
-        <label class="labelFolrm" for="data">Data :</label>
-        <input type="date" class="imputForm" name="data" placeholder="Data de Cadastro" ng-model="novoProduto.data">
-      </div> -->
 
       <div class="selectModal">
         <label class="labelFolrm" for="categoria">Categoria :</label>
