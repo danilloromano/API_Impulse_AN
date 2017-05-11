@@ -7,10 +7,15 @@ angular.module('impulseApp').controller('ProductController',function($scope,$htt
   $scope.showNewProoductModal = false;
   $scope.productInEdition = {};
   $scope.novoProduto = {};
+  $scope.lucroTotal = 0.0;
+
+
 
   var promise = $http.get('/productData');
     promise.then(function(result){
       $scope.products = result.data;
+      $scope.lucroTotal = $scope.products.reduce((acc, next) =>  { return acc + next.lucro }, 0);
+
       $scope.products.forEach(function(product){
         let validade  = new Date(convertDate(product.validade));
         product.validade = validade;
@@ -25,6 +30,41 @@ angular.module('impulseApp').controller('ProductController',function($scope,$htt
   }).catch(function(error){
     console.log(error);
   });
+
+function criaLucroTotal(){
+  $scope.products.map(function(item){
+    // let quardaLucros = [];
+    // quardaLucros.push(item.lucro);
+    // console.log(quardaLucros);
+    return item.lucro;
+  });
+};
+
+function convertDate(data) {
+  function pad(s) { return (s < 10) ? '0' + s : s; }
+  var d = new Date(data);
+  return [pad(d.getFullYear()), pad(d.getMonth()+1),d.getDate()].join('-');
+}
+
+function twoDigits(d) {
+    if(0 <= d && d < 10) return "0" + d.toString();
+    if(-10 < d && d < 0) return "-0" + (-1*d).toString();
+    return d.toString();
+}
+
+function mysqlDateFormat(data) {
+    return data.getUTCFullYear() + "-" +
+     twoDigits(1 + data.getUTCMonth()) + "-" +
+     twoDigits(data.getUTCDate()) + " " +
+     twoDigits(data.getUTCHours()) + ":" +
+     twoDigits(data.getUTCMinutes()) + ":" +
+     twoDigits(data.getUTCSeconds());
+};
+
+function generateProfit(venda,custo,quantidade) {
+    let profit = (venda - custo) * quantidade;
+    return profit.toFixed(2);
+};
 
   $scope.openUpdateProductModal = function(product){
     $scope.Open = true;
@@ -52,37 +92,6 @@ angular.module('impulseApp').controller('ProductController',function($scope,$htt
     }, 500)
   }
 
-function convertDate(data) {
-  function pad(s) { return (s < 10) ? '0' + s : s; }
-  var d = new Date(data);
-  return [pad(d.getFullYear()), pad(d.getMonth()+1),d.getDate()].join('-');
-}
-
-function twoDigits(d) {
-    if(0 <= d && d < 10) return "0" + d.toString();
-    if(-10 < d && d < 0) return "-0" + (-1*d).toString();
-    return d.toString();
-}
-
-function mysqlDateFormat(data) {
-    return data.getUTCFullYear() + "-" +
-     twoDigits(1 + data.getUTCMonth()) + "-" +
-     twoDigits(data.getUTCDate()) + " " +
-     twoDigits(data.getUTCHours()) + ":" +
-     twoDigits(data.getUTCMinutes()) + ":" +
-     twoDigits(data.getUTCSeconds());
-};
-
-  function dataInput(data) {
-    let formateData = new Date(data);
-    return formateData;
-  }
-
-  function generateProfit(venda,custo,quantidade) {
-    let profit = (venda - custo) * quantidade;
-    return profit.toFixed(2);
-  };
-
   $scope.saveProduct = function(novoProduto){
 
     let productInSave = {
@@ -90,7 +99,7 @@ function mysqlDateFormat(data) {
       marca: novoProduto.marca,
       custo: novoProduto.custo,
       venda: novoProduto.venda,
-      validade: convertDate(dataInput(novoProduto.validade)),
+      validade: convertDate(novoProduto.validade),
       categoria_id: novoProduto.categoria_id,
       descricao: novoProduto.descricao,
       quantidade: novoProduto.quantidade,
@@ -127,7 +136,7 @@ function mysqlDateFormat(data) {
         marca: $scope.productInEdition.marca,
         custo: $scope.productInEdition.custo,
         venda: $scope.productInEdition.venda,
-        validade: convertDate(dataInput($scope.productInEdition.validade)),
+        validade: convertDate($scope.productInEdition.validade),
         categoria_id: $scope.productInEdition.categoria_id,
         descricao: $scope.productInEdition.descricao,
         quantidade: $scope.productInEdition.quantidade,

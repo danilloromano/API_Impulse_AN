@@ -93,7 +93,7 @@ module.exports = function(app){
           console.log(error);
           res.status(500).send(error)
         }
-        console.log('Produto deletado');
+        console.log('Produto alterado');
         res.status(203);
       });
       connection.end();

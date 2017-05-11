@@ -1,4 +1,4 @@
-angular.module("impulseApp",['myDirectives','ngRoute'])
+angular.module("impulseApp",['myDirectives','ngRoute','ngMask'])
 .config(function($routeProvider) {
 
         $routeProvider.when('/home', {
@@ -18,6 +18,11 @@ angular.module("impulseApp",['myDirectives','ngRoute'])
         $routeProvider.when('/login', {
             templateUrl: 'partials/login.html',
             controller: 'LoginController'
+        });
+
+        $routeProvider.when('/product-report', {
+            templateUrl: 'partials/product-report.html',
+            controller: 'ProductReportController'
         });
 
         $routeProvider.otherwise({redirectTo: '/login'});
