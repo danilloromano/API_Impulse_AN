@@ -31,15 +31,6 @@ angular.module('impulseApp').controller('ProductController',function($scope,$htt
     console.log(error);
   });
 
-function criaLucroTotal(){
-  $scope.products.map(function(item){
-    // let quardaLucros = [];
-    // quardaLucros.push(item.lucro);
-    // console.log(quardaLucros);
-    return item.lucro;
-  });
-};
-
 function convertDate(data) {
   function pad(s) { return (s < 10) ? '0' + s : s; }
   var d = new Date(data);

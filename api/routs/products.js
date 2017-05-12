@@ -16,6 +16,25 @@ module.exports = function(app){
     connection.end();
   });
 
+  app.get('/productReport', function(req, res){
+    console.log('Recebida requisicao de produtos.');
+    const connection = app.DAO.connection();
+    const productDao = new app.DAO.productDao(connection);
+    let data  = req.body;
+    let report = [];
+    productDao.listByData(data,function(error,result){
+      if (error) {
+        console.log(error);
+        res.status(500).send(error);
+        return;
+      }
+      res.status(200).send(JSON.stringify(result));
+    });
+    connection.end();
+  });
+
+  listByData
+
 
   app.get('/productData/category', function(req, res){
     console.log('Recebida requisicao de categorias.');
