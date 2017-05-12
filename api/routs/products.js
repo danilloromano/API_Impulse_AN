@@ -33,7 +33,6 @@ module.exports = function(app){
     connection.end();
   });
 
-  listByData
 
 
   app.get('/productData/category', function(req, res){

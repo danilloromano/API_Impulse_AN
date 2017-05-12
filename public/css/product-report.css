@@ -1,0 +1,58 @@
+.inputSearchByData{
+  position: relative;
+  margin-bottom: 10px;
+  left: 18%;
+  width: 135px;
+  height: 25px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.labelSearchByData{
+  position: relative;
+  bottom: 20px;
+  left: 18%;
+  font-family: 'Creepster', cursive;
+  font-size: 20px;
+  top: 2px;
+}
+
+.buttonSearchByData{
+  margin-bottom: 10px;
+  margin-left: 19%;
+  font-family: 'Creepster', cursive;
+  width: 80px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+/*.table{
+  border-radius: 5px;
+  width: 65%;
+  box-shadow: 10px 5px 5px rgb(113,99,99);
+  font-family: 'Creepster', cursive;
+  border: 2px solid black;
+  margin-left: 17%;
+}
+
+th{
+text-align: center;
+background-color: black;
+color: white;
+}
+
+.linhaTabela{
+color: black;
+}
+
+tr{
+  height: 30px;
+}
+tr:hover{
+background-color: rgb(211,211,211);
+}
+
+td{
+  text-align: center;
+}*/
