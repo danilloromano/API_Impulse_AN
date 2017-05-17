@@ -15,11 +15,6 @@ angular.module('impulseApp').controller('ProductController',function($scope,$htt
     promise.then(function(result){
       $scope.products = result.data;
       $scope.lucroTotal = $scope.products.reduce((acc, next) =>  { return acc + next.lucro }, 0);
-
-      $scope.products.forEach(function(product){
-        let validade  = new Date(convertDate(product.validade));
-        product.validade = validade;
-      });
     }).catch(function(error){
         console.log(error);
       });
@@ -54,13 +49,20 @@ function mysqlDateFormat(data) {
 
 function generateProfit(venda,custo,quantidade) {
     let profit = (venda - custo) * quantidade;
-    return profit.toFixed(2);
+    return parseInt(profit.toFixed(2));
 };
+
+function generateTotalLucro(){
+  $scope.lucroTotal = $scope.products.reduce((acc, next) =>  { return acc + next.lucro }, 0);
+  return $scope.lucroTotal;
+}
+
 
   $scope.openUpdateProductModal = function(product){
     $scope.Open = true;
     $scope.showUpdateProductModal = true;
     $scope.productInEdition = product;
+    product.validade = new Date(product.validade);
   }
 
   $scope.closeUpdateProductModal = function(){
@@ -101,6 +103,9 @@ function generateProfit(venda,custo,quantidade) {
       var promise = $http.post('/products/newProduct', productInSave);
       promise.then(function(){
         console.log(productInSave);
+        console.log(typeof($scope.lucroTotal));
+        console.log( typeof(productInSave.lucro)) ;
+        $scope.lucroTotal += productInSave.lucro;
       $scope.products.push(productInSave);
       }).catch(function(error){
         console.log(error);
@@ -111,6 +116,7 @@ function generateProfit(venda,custo,quantidade) {
       var id = product.id;
       var productIndex = $scope.products.indexOf(product);
       $scope.products.splice(productIndex, 1);
+      $scope.lucroTotal -= product.lucro;
       var promise = $http.delete('/products/deleteProduct/'+id);
         promise.then(function(){
           }).catch(function(error){
