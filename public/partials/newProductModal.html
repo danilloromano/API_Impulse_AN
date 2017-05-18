@@ -51,6 +51,10 @@
       <div>
         <button type="button" name="button" class="productCloseButtom" ng-click='closeNewProduct()'>Cancelar</button>
       </div>
+
+      <div>
+        <p class="errorMessage" ng-if="hasError">{{message}}</p>
+      </div>
   </div>
 </form>
 </div>

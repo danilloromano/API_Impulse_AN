@@ -1,6 +1,7 @@
 angular.module('impulseApp').controller('ProductController',function($scope,$http,$routeParams,$route){
 
   $scope.products = [];
+  $scope.message = '';
   $scope.categorys = [];
 	$scope.filtro = '';
   $scope.showUpdateProductModal = false;
@@ -8,7 +9,7 @@ angular.module('impulseApp').controller('ProductController',function($scope,$htt
   $scope.productInEdition = {};
   $scope.novoProduto = {};
   $scope.lucroTotal = 0.0;
-
+  $scope.hasError = false;
 
 
   var promise = $http.get('/productData');
@@ -25,6 +26,37 @@ angular.module('impulseApp').controller('ProductController',function($scope,$htt
   }).catch(function(error){
     console.log(error);
   });
+
+  function insertErrorMessage(message) {
+    $scope.hasError = true;
+    $scope.message = message;
+  };
+
+  function removeErrorMessage() {
+    $scope.hasError = false;
+    $scope.message = '';
+  }
+
+  function verifyImputString(string) {
+    if(string === '' || typeof string !== 'string') {
+      insertErrorMessage("Por favor preencha o campo corretamnete");
+      return;
+    }
+      removeErrorMessage();
+      return string;
+  };
+
+
+  function verifyImputNumber(number) {
+    console.log(typeof number,number);
+    if(angular.isEmpt(number) === '' || typeof number !== 'number') {
+      insertErrorMessage("Por favor preencha o campo corretamnete");
+      return;
+    }
+      removeErrorMessage();
+      return number;
+  };
+
 
 function convertDate(data) {
   function pad(s) { return (s < 10) ? '0' + s : s; }
@@ -88,24 +120,21 @@ function generateTotalLucro(){
   $scope.saveProduct = function(novoProduto){
 
     let productInSave = {
-      nome: novoProduto.nome,
-      marca: novoProduto.marca,
-      custo: novoProduto.custo,
-      venda: novoProduto.venda,
+      nome: verifyImputString(novoProduto.nome),
+      marca: verifyImputString(novoProduto.marca),
+      custo: verifyImputNumber(novoProduto.custo),
+      venda: verifyImputNumber(novoProduto.venda),
       validade: convertDate(novoProduto.validade),
       categoria_id: novoProduto.categoria_id,
-      descricao: novoProduto.descricao,
-      quantidade: novoProduto.quantidade,
+      descricao: verifyImputString(novoProduto.descricao),
+      quantidade:verifyImputNumber(novoProduto.quantidade) ,
       lucro: generateProfit(novoProduto.venda,novoProduto.custo,novoProduto.quantidade),
       data:mysqlDateFormat(new Date())
     };
 
       var promise = $http.post('/products/newProduct', productInSave);
       promise.then(function(){
-        console.log(productInSave);
-        console.log(typeof($scope.lucroTotal));
-        console.log( typeof(productInSave.lucro)) ;
-        $scope.lucroTotal += productInSave.lucro;
+      $scope.lucroTotal += productInSave.lucro;
       $scope.products.push(productInSave);
       }).catch(function(error){
         console.log(error);

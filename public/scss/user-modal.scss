@@ -1,0 +1,121 @@
+
+.modal {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 380px;
+  height: 500px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 72px;
+  left: -100%;
+  transition: all .5s ease-in;
+  /*animation: slideInLeft 0.5s forwards;*/
+}
+
+.modal.opened {
+  left: 20px;
+  
+}
+
+.modal.closing {
+  animation: slideInRight 0.5s forwards;
+}
+
+.containerModal{
+  margin-top: 10px;
+}
+
+.labelFolrm{
+  font-family: 'Creepster', cursive;
+  font-size: 15px;
+  margin-left: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.imputForm{
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 250px;
+  height: 25px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding-left: 5px;
+}
+
+.checkboxModal{
+  position: relative;
+  bottom: 20px;
+  left: 285px;
+  width: 80px;
+  margin: 0px;
+}
+
+#passwordModal{
+  margin-top: 0px;
+  top: 10px;
+}
+.selectModal{
+  height: 20px;
+}
+
+.changeButtom{
+position: relative;
+margin-left: 10px;
+height: 25px;
+width: 70px;
+background-color:rgba(0, 0, 0, 0.5);
+border-radius: 10px;
+box-shadow: 2px 1px 1px rgb(192,192,192);
+color: white;
+font-family: 'Creepster', cursive;
+}
+
+.closeButtom{
+position: relative;
+left:  300px;
+bottom: 25px;
+height: 25px;
+width: 70px;
+background-color:rgba(192,192,192,0.2);
+border-radius: 10px;
+box-shadow: 2px 1px 1px rgb(192,192,192);
+color: black;
+font-family: 'Creepster', cursive;
+
+}
+
+#selectUser{
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 100px;
+  margin-bottom: 10px;
+  margin-left: 66px;
+  height: 25px;
+}
+
+.new_form-group.--flex {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.new_form-group_row.--half{
+  width: 48%;
+}
+
+.new_form-group_row {
+  margin-bottom: 10px;
+}
+
+.closeInSlade{
+  animation: slideOutLeft 0.5s forwards;
+}
+.openInSlide{
+  animation: slideInLeft 0.5s forwards;
+}
+
+.errorMessage {
+  margin-top: 20px;
+  margin-left: 15px;
+  color: red;
+}
