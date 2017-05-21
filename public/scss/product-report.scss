@@ -1,19 +1,20 @@
+@import 'public/scss/colors.scss';
 .inputSearchByData{
   position: relative;
   margin-bottom: 10px;
   left: 18%;
   width: 135px;
   height: 25px;
-  border: 2px solid black;
+  border: 2px solid $primary-color;
   border-radius: 5px;
 }
 
 .labelSearchByData{
   position: relative;
   bottom: 20px;
-  
+
   left: 18%;
-  font-family: 'Creepster', cursive;
+  font-family: $default-font;
   font-size: 20px;
   top: 2px;
 }
@@ -21,7 +22,7 @@
 .buttonSearchByData{
   margin-bottom: 10px;
   margin-left: 19%;
-  font-family: 'Creepster', cursive;
+  font-family: $default-font;
   width: 80px;
   height: 25px;
   border-radius: 5px;
@@ -32,19 +33,19 @@
   border-radius: 5px;
   width: 65%;
   box-shadow: 10px 5px 5px rgb(113,99,99);
-  font-family: 'Creepster', cursive;
-  border: 2px solid black;
+  font-family: $default-font;
+  border: 2px solid $primary-color;
   margin-left: 17%;
 }
 
 th{
 text-align: center;
-background-color: black;
+background-color: $primary-color;
 color: white;
 }
 
 .linhaTabela{
-color: black;
+color: $primary-color;
 }
 
 tr{

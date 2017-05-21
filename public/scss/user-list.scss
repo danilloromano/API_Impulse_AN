@@ -1,10 +1,11 @@
+@import 'public/scss/colors.scss';
 .titulo{
   margin-top: 20px;
   margin-left: 48%;
   margin-bottom:10px;
-  color: black;
+  color: $primary-color;
   font-size: 30px;
-  font-family: 'Creepster', cursive;
+  font-family: $default-font;
 }
 
 .btnNewClient{
@@ -15,15 +16,15 @@
   width: 100px;
   border-radius: 10px;
   background-color:rgba(0, 0, 0, 0.8);
-  border: 2px solid black;
+  border: 2px solid $primary-color;
   color:white;
-  font-family: 'Creepster', cursive;
+  font-family: $default-font;
 }
 
 .labelSearch{
   position: relative;
   left: 18%;
-  font-family: 'Creepster', cursive;
+  font-family: $default-font;
   font-size: 20px;
   top: 5px;
 
@@ -33,26 +34,26 @@
   left: 18%;
   width: 180px;
   height: 25px;
-  border: 2px solid black;
+  border: 2px solid $primary-color;
 }
 
 .table{
   border-radius: 5px;
   width: 65%;
   box-shadow: 10px 5px 5px rgb(113,99,99);
-  font-family: 'Creepster', cursive;
-  border: 2px solid black;
+  font-family: $default-font;
+  border: 2px solid $primary-color;
   margin-left: 17%;
 }
 
 th{
 text-align: center;
-background-color: black;
+background-color: $primary-color;
 color: white;
 }
 
 .linhaTabela{
-color: black;
+color: $primary-color;
 }
 
 tr{
@@ -73,7 +74,7 @@ background-color:rgb(73,85,210);
 border-radius: 10px;
 box-shadow: 2px 1px 1px rgb(192,192,192);
 color: white;
-font-family: 'Creepster', cursive;
+font-family: $default-font;
 }
 .deleteButtom{
 height: 25px;
@@ -82,7 +83,7 @@ background-color:rgb(214,48,48);
 border-radius: 10px;
 box-shadow: 2px 1px 1px rgb(192,192,192);
 color: white;
-font-family: 'Creepster', cursive;
+font-family: $default-font;
 }
 
 .hidden{
@@ -96,7 +97,7 @@ font-family: 'Creepster', cursive;
 
 .labelTotal {
   font-size: 20px;
-  font-family: 'Creepster', cursive;
+  font-family: $default-font;
 }
 
 .imputTotal {
@@ -104,5 +105,5 @@ font-family: 'Creepster', cursive;
   width: 80px;
   height: 30px;
   font-size: 20px;
-  font-family: 'Creepster', cursive;
+  font-family: $default-font;
 }

@@ -13,7 +13,7 @@
 .lista-nav {
   margin: 0px;
   padding: 0px;
-  font-family: 'Creepster', cursive;
+  font-family: "Open Sans", sans-serif;
   text-align: inherit; }
 
 a {
@@ -61,7 +61,7 @@ a {
   margin-bottom: 15px; }
 
 .labelFolrmImput {
-  font-family: 'Creepster', cursive;
+  font-family: "Open Sans", sans-serif;
   font-size: 15px;
   margin-left: 10px;
   color: rgba(255, 255, 255, 0.7); }
@@ -79,7 +79,7 @@ a {
   border-radius: 10px;
   box-shadow: 2px 1px 1px silver;
   color: white;
-  font-family: 'Creepster', cursive; }
+  font-family: "Open Sans", sans-serif; }
 
 .new-footer {
   background-color: black;
@@ -91,7 +91,7 @@ a {
   height: 3em; }
 
 #frase-footer1 {
-  font-family: 'Creepster', cursive;
+  font-family: "Open Sans", sans-serif;
   bottom: 25px;
   left: 20px;
   color: white;
@@ -99,7 +99,7 @@ a {
 
 #frase-footer2 {
   position: relative;
-  font-family: 'Creepster', cursive;
+  font-family: "Open Sans", sans-serif;
   bottom: 35px;
   left: 87%;
   color: #fff; }
@@ -132,7 +132,7 @@ a {
   border-radius: 10px;
   box-shadow: 2px 1px 1px silver;
   color: white;
-  font-family: 'Creepster', cursive; }
+  font-family: "Open Sans", sans-serif; }
 
 .productCloseButtom {
   position: relative;
@@ -143,7 +143,7 @@ a {
   border-radius: 10px;
   box-shadow: 2px 1px 1px silver;
   color: black;
-  font-family: 'Creepster', cursive; }
+  font-family: "Open Sans", sans-serif; }
 
 #selectProduct {
   border: 2px solid black;
@@ -166,14 +166,14 @@ a {
   position: relative;
   bottom: 20px;
   left: 18%;
-  font-family: 'Creepster', cursive;
+  font-family: "Open Sans", sans-serif;
   font-size: 20px;
   top: 2px; }
 
 .buttonSearchByData {
   margin-bottom: 10px;
   margin-left: 19%;
-  font-family: 'Creepster', cursive;
+  font-family: "Open Sans", sans-serif;
   width: 80px;
   height: 25px;
   border-radius: 5px;
@@ -184,19 +184,19 @@ a {
   border-radius: 5px;
   width: 65%;
   box-shadow: 10px 5px 5px rgb(113,99,99);
-  font-family: 'Creepster', cursive;
-  border: 2px solid black;
+  font-family: $default-font;
+  border: 2px solid $primary-color;
   margin-left: 17%;
 }
 
 th{
 text-align: center;
-background-color: black;
+background-color: $primary-color;
 color: white;
 }
 
 .linhaTabela{
-color: black;
+color: $primary-color;
 }
 
 tr{
@@ -215,7 +215,7 @@ td{
   margin-bottom: 10px;
   color: black;
   font-size: 30px;
-  font-family: 'Creepster', cursive; }
+  font-family: "Open Sans", sans-serif; }
 
 .btnNewClient {
   position: relative;
@@ -227,12 +227,12 @@ td{
   background-color: rgba(0, 0, 0, 0.8);
   border: 2px solid black;
   color: white;
-  font-family: 'Creepster', cursive; }
+  font-family: "Open Sans", sans-serif; }
 
 .labelSearch {
   position: relative;
   left: 18%;
-  font-family: 'Creepster', cursive;
+  font-family: "Open Sans", sans-serif;
   font-size: 20px;
   top: 5px; }
 
@@ -247,7 +247,7 @@ td{
   border-radius: 5px;
   width: 65%;
   box-shadow: 10px 5px 5px #716363;
-  font-family: 'Creepster', cursive;
+  font-family: "Open Sans", sans-serif;
   border: 2px solid black;
   margin-left: 17%; }
 
@@ -275,7 +275,7 @@ td {
   border-radius: 10px;
   box-shadow: 2px 1px 1px silver;
   color: white;
-  font-family: 'Creepster', cursive; }
+  font-family: "Open Sans", sans-serif; }
 
 .deleteButtom {
   height: 25px;
@@ -284,7 +284,7 @@ td {
   border-radius: 10px;
   box-shadow: 2px 1px 1px silver;
   color: white;
-  font-family: 'Creepster', cursive; }
+  font-family: "Open Sans", sans-serif; }
 
 .hidden {
   display: none; }
@@ -295,14 +295,14 @@ td {
 
 .labelTotal {
   font-size: 20px;
-  font-family: 'Creepster', cursive; }
+  font-family: "Open Sans", sans-serif; }
 
 .imputTotal {
   padding-top: 10px;
   width: 80px;
   height: 30px;
   font-size: 20px;
-  font-family: 'Creepster', cursive; }
+  font-family: "Open Sans", sans-serif; }
 
 .modal {
   border: 2px solid black;
@@ -326,7 +326,7 @@ td {
   margin-top: 10px; }
 
 .labelFolrm {
-  font-family: 'Creepster', cursive;
+  font-family: "Open Sans", sans-serif;
   font-size: 15px;
   margin-left: 10px;
   color: rgba(255, 255, 255, 0.7); }
@@ -363,7 +363,7 @@ td {
   border-radius: 10px;
   box-shadow: 2px 1px 1px silver;
   color: white;
-  font-family: 'Creepster', cursive; }
+  font-family: "Open Sans", sans-serif; }
 
 .closeButtom {
   position: relative;
@@ -375,7 +375,7 @@ td {
   border-radius: 10px;
   box-shadow: 2px 1px 1px silver;
   color: black;
-  font-family: 'Creepster', cursive; }
+  font-family: "Open Sans", sans-serif; }
 
 #selectUser {
   border: 2px solid black;

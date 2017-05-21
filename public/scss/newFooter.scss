@@ -1,5 +1,6 @@
+@import 'public/scss/colors.scss';
 .new-footer{
-  background-color: black;
+  background-color: $primary-color;
 	position: fixed;
   right: 0px;
   margin-right: 0px;
@@ -9,7 +10,7 @@
 }
 
 #frase-footer1{
-  font-family: 'Creepster', cursive;
+  font-family: $default-font;
   bottom: 25px;
   left: 20px;
   color: white;
@@ -18,7 +19,7 @@
 
 #frase-footer2{
   position: relative;
-  font-family: 'Creepster', cursive;
+  font-family: $default-font;
   bottom: 35px;
   left: 87%;
   color: #fff;

@@ -1,5 +1,6 @@
+@import 'public/scss/colors.scss';
 .ProductModal {
-  border: 2px solid black;
+  border: 2px solid $primary-color;
   border-radius: 10px;
   width: 380px;
   height: 380px;
@@ -19,8 +20,6 @@
   animation: slideInRight 0.5s forwards;
 }
 
-
-
 .productChangeButtom{
 position: relative;
 margin-left: 10px;
@@ -31,7 +30,7 @@ background-color:rgba(0, 0, 0, 0.5);
 border-radius: 10px;
 box-shadow: 2px 1px 1px rgb(192,192,192);
 color: white;
-font-family: 'Creepster', cursive;
+font-family: $default-font;
 }
 
 .productCloseButtom{
@@ -42,13 +41,13 @@ width: 70px;
 background-color:rgba(192,192,192,0.2);
 border-radius: 10px;
 box-shadow: 2px 1px 1px rgb(192,192,192);
-color: black;
-font-family: 'Creepster', cursive;
+color: $primary-color;
+font-family: $default-font;
 
 }
 
 #selectProduct{
-  border: 2px solid black;
+  border: 2px solid $primary-color;
   border-radius: 5px;
   width: 100px;
   margin-bottom: 10px;
