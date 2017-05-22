@@ -1,29 +1,27 @@
 <h1 class='titulo'>Relatorios</h1>
 
 <div>
-  <label for="data" class="labelSearchByData">Data da pesquisa :</label>
-  <input type="Date" name="data" value="" class = "inputSearchByData">
-  <button type="button" name="button" class = "buttonSearchByData">Perquisar</button>
+  <form ng-submit='searchByData(novaData)'>
+    <label for="data" class="labelSearchByData">Data da pesquisa :</label>
+    <input type="Date" name="data" class = "inputSearchByData" ng-model = "novaData.data">
+    <button type="submit" name="button" class ="buttonSearchByData">Perquisar</button>
+  </form>
 </div>
 
 
 <table class="table">
   <thead>
     <tr>
-      <th>Data</th>
       <th>Nome</th>
       <th>Marca</th>
-      <th>Descricao</th>
-      <th>Lucro Total</th>
+      <th>Lucro</th>
     </tr>
   </thead>
     <tbody class="linhaTabela">
       <tr>
-        <td>{{}}</td>
-        <td>{{}}</td>
-        <td>{{}}</td>
-        <td>{{}}</td>
-        <td>{{}}</td>
-    </tr>
-  </tbody>
+        <td>{{report.nome}}</td>
+        <td>{{report.marca}}</td>
+        <td>{{report.lucro}}</td>
+      </tr>
+    </tbody>
 </table>

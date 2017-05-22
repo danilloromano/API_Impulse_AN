@@ -49,7 +49,7 @@ angular.module('impulseApp').controller('ProductController',function($scope,$htt
 
   function verifyImputNumber(number) {
     console.log(typeof number,number);
-    if(angular.isEmpt(number) === '' || typeof number !== 'number') {
+    if( number === '' || angular.isNumber(number) !== true) {
       insertErrorMessage("Por favor preencha o campo corretamnete");
       return;
     }
@@ -63,21 +63,6 @@ function convertDate(data) {
   var d = new Date(data);
   return [pad(d.getFullYear()), pad(d.getMonth()+1),d.getDate()].join('-');
 }
-
-function twoDigits(d) {
-    if(0 <= d && d < 10) return "0" + d.toString();
-    if(-10 < d && d < 0) return "-0" + (-1*d).toString();
-    return d.toString();
-}
-
-function mysqlDateFormat(data) {
-    return data.getUTCFullYear() + "-" +
-     twoDigits(1 + data.getUTCMonth()) + "-" +
-     twoDigits(data.getUTCDate()) + " " +
-     twoDigits(data.getUTCHours()) + ":" +
-     twoDigits(data.getUTCMinutes()) + ":" +
-     twoDigits(data.getUTCSeconds());
-};
 
 function generateProfit(venda,custo,quantidade) {
     let profit = (venda - custo) * quantidade;
@@ -117,7 +102,8 @@ function generateTotalLucro(){
     }, 500)
   }
 
-  $scope.saveProduct = function(novoProduto){
+  $scope.saveProduct = function(novoProduto) {
+
 
     let productInSave = {
       nome: verifyImputString(novoProduto.nome),
@@ -129,9 +115,9 @@ function generateTotalLucro(){
       descricao: verifyImputString(novoProduto.descricao),
       quantidade:verifyImputNumber(novoProduto.quantidade) ,
       lucro: generateProfit(novoProduto.venda,novoProduto.custo,novoProduto.quantidade),
-      data:mysqlDateFormat(new Date())
+      data:convertDate(new Date())
     };
-
+      console.log(productInSave);
       var promise = $http.post('/products/newProduct', productInSave);
       promise.then(function(){
       $scope.lucroTotal += productInSave.lucro;

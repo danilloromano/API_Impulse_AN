@@ -16,11 +16,12 @@ module.exports = function(app){
     connection.end();
   });
 
-  app.get('/productReport', function(req, res){
-    console.log('Recebida requisicao de produtos.');
+  app.get('/products/productReport/:data', function(req, res){
+    console.log('Recebida requisicao de procura referente a data.');
+
     const connection = app.DAO.connection();
     const productDao = new app.DAO.productDao(connection);
-    let data  = req.body;
+    let data  = req.params.data;
     let report = [];
     productDao.listByData(data,function(error,result){
       if (error) {

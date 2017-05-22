@@ -9,7 +9,8 @@ productDao.prototype.list = function(product,callback) {
 }
 
 productDao.prototype.listByData = function(data,callback) {
-    this._connection.query("select * from produtos where data = ?;", data, callback);
+    this._connection.query("select nome,marca,lucro from produtos where data = ?",[data],callback);
+    console.log(this._connection.query);
 }
 
 productDao.prototype.listCategory = function(category,callback) {
