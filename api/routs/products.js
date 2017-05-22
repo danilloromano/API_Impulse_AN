@@ -16,20 +16,22 @@ module.exports = function(app){
     connection.end();
   });
 
-  app.get('/products/productReport/:data', function(req, res){
+  app.get('/products/productReport/:data', function(req, res) {
     console.log('Recebida requisicao de procura referente a data.');
 
     const connection = app.DAO.connection();
     const productDao = new app.DAO.productDao(connection);
-    let data  = req.params.data;
+    let data  = req.params.data.toString();
+    console.log(data);
     let report = [];
-    productDao.listByData(data,function(error,result){
+    productDao.listByData(data,report,function(error,result) {
       if (error) {
         console.log(error);
         res.status(500).send(error);
         return;
       }
       res.status(200).send(JSON.stringify(result));
+      console.log(result);
     });
     connection.end();
   });

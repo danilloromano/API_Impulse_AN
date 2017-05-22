@@ -8,8 +8,8 @@ productDao.prototype.list = function(product,callback) {
 , product, callback);
 }
 
-productDao.prototype.listByData = function(data,callback) {
-    this._connection.query("select nome,marca,lucro from produtos where data = ?",[data],callback);
+productDao.prototype.listByData = function(data,report,callback) {
+    this._connection.query("select nome,marca,lucro from produtos where data = ?",[data,report],callback);
     console.log(this._connection.query);
 }
 

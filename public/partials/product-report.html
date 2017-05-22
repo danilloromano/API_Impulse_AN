@@ -1,4 +1,3 @@
-<h1 class='titulo'>Relatorios</h1>
 
 <div>
   <form ng-submit='searchByData(novaData)'>
@@ -18,10 +17,15 @@
     </tr>
   </thead>
     <tbody class="linhaTabela">
-      <tr>
+      <tr ng-repeat="report in reports">
         <td>{{report.nome}}</td>
         <td>{{report.marca}}</td>
         <td>{{report.lucro}}</td>
       </tr>
     </tbody>
 </table>
+
+<div class='divTotal'>
+  <label for="total" class="labelTotal">Total Lucrado :</label>
+  <span type="number" class="imputTotal" name="" >{{lucroTotal | currency: "R$"}}</span>
+</div>
