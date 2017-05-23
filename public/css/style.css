@@ -183,7 +183,9 @@ a {
   background-color: rgba(0, 0, 0, 0.8);
   color: white; }
 
-/*.table{
+.table{
+  position: relative;
+  top: 100px;
   border-radius: 5px;
   width: 65%;
   box-shadow: 10px 5px 5px rgb(113,99,99);
@@ -191,34 +193,6 @@ a {
   border: 2px solid $primary-color;
   margin-left: 17%;
 }
-
-th{
-text-align: center;
-background-color: $primary-color;
-color: white;
-}
-
-.linhaTabela{
-color: $primary-color;
-}
-
-tr{
-  height: 30px;
-}
-tr:hover{
-background-color: rgb(211,211,211);
-}
-
-td{
-  text-align: center;
-}*/
-.titulo {
-  margin-top: 20px;
-  margin-left: 48%;
-  margin-bottom: 10px;
-  color: #0E0E10;
-  font-size: 30px;
-  font-family: "Open Sans", sans-serif; }
 
 .btnNewClient {
   position: relative;
@@ -232,15 +206,30 @@ td{
   color: white;
   font-family: "Open Sans", sans-serif; }
 
+  .btnNewProduct {
+    position: relative;
+    top: 90px;
+    margin-bottom: 5px;
+    left: 53%;
+    height: 30px;
+    width: 120px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #0E0E10;
+    color: white;
+    font-family: "Open Sans", sans-serif; }
+
 .labelSearch {
   position: relative;
+  top: 90px;
   left: 18%;
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
-  top: 5px; }
+  }
 
 .inputSearch {
   position: relative;
+  top: 90px;
   left: 18%;
   width: 180px;
   height: 25px;
@@ -248,16 +237,18 @@ td{
 
 .table {
   border-radius: 5px;
-  width: 65%;
+  width: 70%;
   box-shadow: 10px 5px 5px #716363;
   font-family: "Open Sans", sans-serif;
   border: 2px solid #0E0E10;
-  margin-left: 17%; }
+  margin-left: 200px; }
 
 th {
   text-align: center;
   background-color: #0E0E10;
-  color: white; }
+  color: white;
+  height: 40px;
+ }
 
 .linhaTabela {
   color: #0E0E10; }
