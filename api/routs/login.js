@@ -9,17 +9,18 @@ module.exports = function(app){
       return;
     }
 
-    var user = req.body;
+    var userName = req.body.user;
+    let password = req.body.password;
     var connection = app.DAO.connection();
     var loginDao =  new app.DAO.loginDao(connection);
 
-    loginDao.searchUser(user,function(error,result){
+    loginDao.searchUser(userName,password,function(error,result){
       if (error) {
         console.log(error);
         res.status(500).send(error)
       }
       console.log('Usuario Logado');
-      
+
       res.status(200).json(result);
     });
     connection.end();

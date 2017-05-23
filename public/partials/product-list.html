@@ -7,30 +7,30 @@
 <table class="table">
   <thead>
     <tr>
-        <th>Nome</th>
-        <th>Marca</th>
-        <th>Descricao</th>
-        <th>Quantidade</th>
-        <th>Custo</th>
-        <th>Venda</th>
-        <th>Lucro</th>
-        <th>Validade</th>
-        <th>Alterar</th>
-        <th>Remover</th>
+        <th id="th">Nome</th>
+        <th id="th">Marca</th>
+        <th id="th">Descricao</th>
+        <th id="th">Quantidade</th>
+        <th id="th">Custo</th>
+        <th id="th">Venda</th>
+        <th id="th">Lucro</th>
+        <th id="th">Validade</th>
+        <th id="th">Alterar</th>
+        <th id="th">Remover</th>
     </tr>
   </thead>
     <tbody class="linhaTabela">
       <tr ng-repeat="product in products|filter: filtro">
-        <td>{{product.nome}}</td>
-        <td>{{product.marca}}</td>
-        <td>{{product.descricao}}</td>
-        <td>{{product.quantidade}}</td>
-        <td>{{product.custo}}</td>
-        <td>{{product.venda}}</td>
-        <td>{{product.lucro}}</td>
-        <td>{{product.validade}}</td>
-        <td><button type="button" name="button" class="alterButtom"  ng-click='openUpdateProductModal(product)'>Alterar</button></td>
-        <td><button type="button" name="button" class="deleteButtom" ng-click='deleteProduct(product)'>Remover</button></td>
+        <td id = "td">{{product.nome}}</td>
+        <td id = "td">{{product.marca}}</td>
+        <td id = "td">{{product.descricao}}</td>
+        <td id = "td">{{product.quantidade}}</td>
+        <td id = "td">{{product.custo}}</td>
+        <td id = "td">{{product.venda}}</td>
+        <td id = "td">{{product.lucro}}</td>
+        <td id = "td">{{product.validade}}</td>
+        <td id = "td"><button type="button" name="button" class="alterButtom"  ng-click='openUpdateProductModal(product)'>Alterar</button></td>
+        <td id = "td"><button type="button" name="button" class="deleteButtom" ng-click='deleteProduct(product)'>Remover</button></td>
     </tr>
   </tbody>
 </table>
