@@ -1,4 +1,4 @@
-angular.module("impulseApp",['myDirectives','ngRoute','ngMask'])
+angular.module("impulseApp",['ngRoute','ngMask'])
 .config(function($routeProvider) {
 
         $routeProvider.when('/home', {
