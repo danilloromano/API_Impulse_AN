@@ -9,22 +9,44 @@ module.exports = function(app){
       return;
     }
 
-    var userName = req.body.user;
+    let email = req.body.email;
     let password = req.body.password;
+    console.log(email,password);
     var connection = app.DAO.connection();
     var loginDao =  new app.DAO.loginDao(connection);
 
-    loginDao.searchUser(userName,password,function(error,result){
+    console.log('passou aqui');
+
+    loginDao.searchUser(email,password,function(error,result){
+      console.log('result');
+
       if (error) {
         console.log(error);
         res.status(500).send(error)
       }
-      console.log('Usuario Logado');
+      //
+      // if(email === result.email && passorwd === result.passorwd ){
+      //   console.log(email,senha);
+      //   console.log(result);
+      // }
+
+      console.log('result');
 
       res.status(200).json(result);
     });
     connection.end();
   });
 
+
+  // app.get('/logout',function(req,res){
+  // req.session.destroy(function(error) {
+  //   if(error) {
+  //     console.log(error);
+  //     }
+  //   });
+  //   //  else {
+  //   //   res.redirect('/');
+  //   // }
+  // });
 
 }
