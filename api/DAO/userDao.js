@@ -1,6 +1,6 @@
 function userDao(connection) {
     this._connection = connection;
-}
+};
 
 userDao.prototype.saveUser = function(novoUser,callback) {
     this._connection.query('INSERT INTO users SET ?',novoUser, callback);
