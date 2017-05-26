@@ -37,6 +37,24 @@ module.exports = function(app){
     connection.end();
   });
 
+  app.get('/user/data', function(req, res){
+    console.log('Recebida requisicao de produtos.');
+    var connection = app.DAO.connection();
+    var loginDao =  new app.DAO.loginDao(connection);
+    var users = [];
+    loginDao.list(users,function(error,result){
+      console.log(result)
+      if (error) {
+        console.log(error);
+        res.status(500).send(error);
+        return;
+      }
+      res.status(200).send(JSON.stringify(result));
+    });
+    connection.end();
+  });
+
+
 
   // app.get('/logout',function(req,res){
   // req.session.destroy(function(error) {
@@ -44,9 +62,9 @@ module.exports = function(app){
   //     console.log(error);
   //     }
   //   });
-  //   //  else {
-  //   //   res.redirect('/');
-  //   // }
+  //    else {
+  //     res.redirect('/');
+  //   }
   // });
 
 }

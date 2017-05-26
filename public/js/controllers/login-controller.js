@@ -2,6 +2,7 @@ angular.module('impulseApp').controller('LoginController',function($scope,$http,
 
   $scope.user = {};
   $scope.message = "";
+  $scope.userData = [];
 
   $scope.login = function() {
     var promise = $http.post('/login',$scope.user);
@@ -12,4 +13,18 @@ angular.module('impulseApp').controller('LoginController',function($scope,$http,
         console.log(error);
       });
   }
+
+  $scope.getUser = function() {
+    var promise = $http.get('/user/data');
+    promise.then(function(result){
+      $scope.userData = result.data;
+      loginDao($scope.userData);
+    }).catch(function(error){
+        $scope.message = error;
+        console.log(error);
+      });
+  }
+
+
+
 });
