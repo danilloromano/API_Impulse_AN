@@ -17,21 +17,19 @@ module.exports = function(app) {
       console.log(params);
       console.log(result);
 
-      let vazio = [];
-      if (result === vazio) {
-        let algumaCoisa = {
-          email:"",
-          password:""
-        };
-        result.push(algumaCoisa);
-        console.log(result);
-      }
-
       if (error) {
         console.log(error);
         res.status(500).send(error);
       }
 
+      let vazio = [];
+
+      if (result.length === 0) {
+        let algumaCoisa = {email:"a",password:"a"};
+        result.push(algumaCoisa);
+        console.log(result);
+        console.log("paddou no primeiro if");
+      }
 
       if(params[0] === result[0].email && params[1] === result[0].password ) {
         console.log("isso ai porra");
