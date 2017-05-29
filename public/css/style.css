@@ -63,7 +63,7 @@ a {
   margin-bottom: 15px; }
 
   #imputLoginPassord{
-  margin-left: 5px; 
+  margin-left: 5px;
   }
 
 .labelFolrmImput {
@@ -204,8 +204,9 @@ a {
 
 .btnNewClient {
   position: relative;
-  margin-bottom: 5px;
-  left: 55%;
+  top: 100px;
+  margin-bottom: 10px;
+  left: 54%;
   height: 30px;
   width: 100px;
   border-radius: 10px;

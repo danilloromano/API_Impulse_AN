@@ -1,4 +1,6 @@
-<h1 class='titulo'>Usuarios</h1>
+
+
+<div ng-include="'js/directives/impulseHeader.html'"></div>
 
 <label for="search" class="labelSearch" >Procurar</label>
 <input type="text" name="search" class = "inputSearch" ng-model="filtro">
@@ -8,27 +10,22 @@
 <table class="table">
   <thead>
     <tr>
-        <th>Nome</th>
-        <th>Endereco</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>RG</th>
-        <th>Regra</th>
-        <th>Alterar</th>
+        <th id="th">Nome</th>
+        <th id="th">Email</th>
+        <th id="th">Ativo</th>
+        <th id="th">Alterar</th>
     </tr>
   </thead>
     <tbody class="linhaTabela">
       <tr ng-repeat="user in users|filter: filtro">
-        <td>{{user.first_name}}</td>
-        <td>{{user.address_name}}</td>
-        <td>{{user.email}}</td>
-        <td>{{user.phone}}</td>
-        <td>{{user.rg}}</td>
-        <td>{{user.role_name}}</td>
-        <td><button type="button" name="button" class="alterButtom" ng-click='updateUser()'>Alterar</button></td>
+        <td id = "td">{{user.first_name +" "+  user.last_name}}</td>
+        <td id = "td">{{user.email}}</td>
+        <td id = "td">{{user.active}}</td>
+        <td id = "td"><button type="button" name="button" class="alterButtom" ng-click='updateUser()'>Alterar</button></td>
         <!-- <td><button type="button" name="button" class="deleteButtom">Remover</button></td> -->
     </tr>
   </tbody>
 </table>
 <!-- <div ng-include="'partials/updateUserModal.html'" ></div> -->
 <div ng-include="'partials/newUserModal.html'" ></div>
+<div ng-include="'js/directives/impulseFooter.html'"></div>

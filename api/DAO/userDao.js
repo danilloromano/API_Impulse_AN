@@ -11,9 +11,13 @@ userDao.prototype.saveUserAddress = function(newUserAddress,callback) {
     this._connection.query('INSERT INTO address SET ?', newUserAddress, callback);
 }
 
+// userDao.prototype.list = function(user,callback) {
+//     this._connection.query("select a.*,u.*,r.* from users as u join address as a on u.rg = a.user_rg join roles as r on r.id = u.user_role;"
+// , user, callback);
+// }
+
 userDao.prototype.list = function(user,callback) {
-    this._connection.query("select a.*,u.*,r.* from users as u join address as a on u.rg = a.user_rg join roles as r on r.id = u.user_role;"
-, user, callback);
+    this._connection.query("select * from adminUsers;", user, callback);
 }
 
 userDao.prototype.changeUser = function(user,rg,callback){
