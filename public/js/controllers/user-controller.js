@@ -26,10 +26,6 @@ angular.module('impulseApp').controller('UserController',function($scope,$http,$
     console.log(error);
   });
 
-  // $scope.updateRole = function(role){
-  //   $scope.roleInEdition = role;
-  // }
-
   $scope.updateUser = function(user){
     $scope.showUpdateUserModal = true;
     $scope.isOpen = true;
@@ -89,6 +85,19 @@ angular.module('impulseApp').controller('UserController',function($scope,$http,$
     }).catch(function(error){
       console.log(error);
     });
+  };
+
+  $scope.deleteUser = function(user){
+    var id = user.id;
+    console.log(id);
+    var userIndex = $scope.users.indexOf(user);
+    console.log(userIndex);
+    $scope.users.splice(userIndex, 1);
+    var promise = $http.delete('/users/deleteUser/'+id);
+      promise.then(function(){
+      }).catch(function(error){
+            console.log(error);
+        });
   };
 
 });

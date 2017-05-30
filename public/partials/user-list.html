@@ -12,7 +12,6 @@
     <tr>
         <th id="th">Nome</th>
         <th id="th">Email</th>
-        <th id="th">Ativo</th>
         <th id="th">Alterar</th>
         <th id="th">Remover</th>
     </tr>
@@ -21,9 +20,8 @@
       <tr ng-repeat="user in users|filter: filtro">
         <td id = "td">{{user.first_name +" "+  user.last_name}}</td>
         <td id = "td">{{user.email}}</td>
-        <td id = "td">{{user.active}}</td>
         <td id = "td"><button type="button" name="button" class="alterButtom" ng-click='updateUser()'>Alterar</button></td>
-        <td id = "td"><button type="button" name="button" class="deleteButtom">Remover</button></td>
+        <td id = "td"><button type="button" name="button" class="deleteButtom" ng-click='deleteUser(user)'>Remover</button></td>
     </tr>
   </tbody>
 </table>

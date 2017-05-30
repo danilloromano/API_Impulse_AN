@@ -1,10 +1,5 @@
 
-module.exports = function(app){
-
-  app.get('/',function(req,res){
-    console.log('Recebida requisicao na porta 3000.');
-    res.send('index.html');
-  });
+module.exports = function(app) {
 
   app.get('/usersData', function(req, res){
     console.log('Recebido os users do get');
@@ -22,21 +17,6 @@ module.exports = function(app){
     connection.end();
   });
 
-  app.get('/user_role',function(req,res){
-    var connection = app.DAO.connection();
-    var userDao = new app.DAO.userDao(connection);
-    var roles = [];
-    userDao.categoryUser(roles,function(error,result){
-      if (error) {
-        console.log(error);
-        res.status(500).send(error);
-        return;
-      }
-      res.status(200).send(JSON.stringify(result));
-    });
-  });
-
-
   app.post('/users/newUser',function(req,res){
     var error = req.validationErrors();
 
@@ -52,30 +32,6 @@ module.exports = function(app){
     var userDao =  new app.DAO.userDao(connection);
 
     userDao.saveUser(novoUser,function(error,result){
-      if (error) {
-        console.log(error);
-        res.status(500).send(error)
-      }
-      console.log('user criado');
-      res.status(201).json(result);
-    });
-    connection.end();
-  });
-
-  app.post('/users/newUser/address',function(req,res){
-    var error = req.validationErrors();
-
-    if (error) {
-      console.log("erros encontrados");
-      res.status(400).send(error);
-      return;
-    }
-    var newUserAddress = req.body;
-    console.log(newUserAddress);
-    var connection = app.DAO.connection();
-    var userDao = new app.DAO.userDao(connection);
-
-    userDao.saveUserAddress(newUserAddress,function(error,result){
       if (error) {
         console.log(error);
         res.status(500).send(error)
@@ -111,7 +67,9 @@ module.exports = function(app){
     connection.end();
   });
 
-  app.put('/users/change/address',function(req,res){
+
+  app.delete('/users/deleteUser/:id',function(req,res){
+
     var error = req.validationErrors();
 
     if (error) {
@@ -120,22 +78,18 @@ module.exports = function(app){
       return;
     }
 
-    var address = req.body;
-    var rg = address.user_rg;
+    var id = req.params.id;
     var connection = app.DAO.connection();
     var userDao = new app.DAO.userDao(connection);
 
-    userDao.changeAddress(address,rg,function(error,result){
+    userDao.deleteUser(id,function(error,result){
       if (error) {
         console.log(error);
         res.status(500).send(error)
       }
-      console.log('user criado');
-      res.status(202).json(result);
+      console.log('usuario deletado');
+      res.status(203);
     });
     connection.end();
   });
-
-
-
-}
+};
