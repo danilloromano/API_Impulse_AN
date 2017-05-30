@@ -14,6 +14,7 @@
         <th id="th">Email</th>
         <th id="th">Ativo</th>
         <th id="th">Alterar</th>
+        <th id="th">Remover</th>
     </tr>
   </thead>
     <tbody class="linhaTabela">
@@ -22,7 +23,7 @@
         <td id = "td">{{user.email}}</td>
         <td id = "td">{{user.active}}</td>
         <td id = "td"><button type="button" name="button" class="alterButtom" ng-click='updateUser()'>Alterar</button></td>
-        <!-- <td><button type="button" name="button" class="deleteButtom">Remover</button></td> -->
+        <td id = "td"><button type="button" name="button" class="deleteButtom">Remover</button></td>
     </tr>
   </tbody>
 </table>

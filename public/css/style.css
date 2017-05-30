@@ -11,7 +11,7 @@
 .lista-nav {
   margin: 0px;
   padding: 0px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Creepster', cursive;
   text-align: inherit; }
 
 
@@ -99,14 +99,14 @@ a {
 #frase-footer1 {
   position: relative;
   top: 15px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Creepster', cursive;
   left: 20px;
   color: white;
   margin-left: 20px; }
 
 #frase-footer2 {
   position: relative;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Creepster', cursive;
   left: 83%;
   color: #fff; }
 
