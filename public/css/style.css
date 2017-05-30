@@ -236,6 +236,14 @@ a {
   font-size: 20px;
   }
 
+  .UserlabelSearch {
+    position: relative;
+    top: 100px;
+    left: 18%;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    }
+
 .inputSearch {
   position: relative;
   top: 90px;
@@ -243,6 +251,14 @@ a {
   width: 180px;
   height: 25px;
   border: 2px solid #0E0E10; }
+
+  .UserinputSearch {
+    position: relative;
+    top: 100px;
+    left: 18%;
+    width: 180px;
+    height: 25px;
+    border: 2px solid #0E0E10; }
 
 #th {
   text-align: center;
@@ -307,11 +323,11 @@ tr:hover {
   font-size: 20px;
   font-family: "Open Sans", sans-serif; }
 
-.modal {
+.UserModal {
   border: 2px solid #0E0E10;
   border-radius: 10px;
   width: 380px;
-  height: 500px;
+  height: 250px;
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   top: 72px;
@@ -319,10 +335,10 @@ tr:hover {
   transition: all .5s ease-in;
   /*animation: slideInLeft 0.5s forwards;*/ }
 
-.modal.opened {
+.UserModal.opened {
   left: 20px; }
 
-.modal.closing {
+.UserModal.closing {
   animation: slideInRight 0.5s forwards; }
 
 .containerModal {
@@ -350,6 +366,11 @@ tr:hover {
   width: 80px;
   margin: 0px; }
 
+  #check{
+    margin-right: 245px;
+  }
+
+
 #passwordModal {
   margin-top: 0px;
   top: 10px; }
@@ -359,6 +380,7 @@ tr:hover {
 
 .changeButtom {
   position: relative;
+  margin-top: 25px;
   margin-left: 10px;
   height: 25px;
   width: 70px;

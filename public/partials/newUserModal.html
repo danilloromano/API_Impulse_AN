@@ -1,4 +1,4 @@
-<div class="modal" ng-class="{opened: isOpen}" id="modalForm">
+<div class="UserModal" ng-class="{opened: isOpen}" id="modalForm">
 <form ng-submit="save(novoUser)">
   <div class="containerModal">
       <div class="new_form-group --flex">
@@ -16,18 +16,18 @@
         <input type="text" class="imputForm" name="email" placeholder="Email" ng-model="novoUser.email">
       </div>
 
-        <div class="checkboxModal">
-          <label class="labelFolrm" for="active">Status :</label>
-          <input type="checkbox" name="active" id="check" ng-model="novoUser.active.value">
-        </div>
-
       <div class="new_form-group --flex " id="passwordModal">
         <label class="labelFolrm" for="password">Senha :</label>
         <input type="text" class="imputForm" name="password" placeholder="Senha" ng-model="novoUser.password">
       </div>
 
+      <div class="new_form-group --flex">
+        <label class="labelFolrm" for="active">Status :</label>
+        <input type="checkbox" name="active" id="check" ng-model="novoUser.active.value">
+      </div>
+
       <div>
-        <button type="submit" name="button" class="changeButtom" ng-click = 'saveUserAddress(novoUser)'>Salvar</button>
+        <button type="submit" name="button" class="changeButtom">Salvar</button>
       </div>
 
       <div>
