@@ -42,7 +42,7 @@ module.exports = function(app) {
     connection.end();
   });
 
-  app.put('/users/change/user',function(req,res){
+  app.put('/user/change',function(req,res){
     var error = req.validationErrors();
 
     if (error) {

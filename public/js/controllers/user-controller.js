@@ -16,7 +16,10 @@ angular.module('impulseApp').controller('UserController',function($scope,$http,$
 
 
 $scope.change = function(){
-  $scope.userInEdition.active.value = 0;
+  if ($scope.userInEdition.active.value === 1) {
+      $scope.userInEdition.active.value = 0;
+  }
+  $scope.userInEdition.active.value = 1;
 };
 
 
@@ -89,22 +92,22 @@ $scope.change = function(){
   };
 
   $scope.changeUser = function(userInEdition) {
-    console.log(userInEdition);
+    // console.log(userInEdition);
     $scope.userInChange = {
       first_name: userInEdition.first_name,
       last_name: userInEdition.last_name,
       email: userInEdition.email,
       password: userInEdition.password,
-      active: userInEdition.active
+      // active: userInEdition.active
     };
+      // console.log($scope.userInChange);
+    var promise = $http.put('/user/change',$scope.userInChange,$scope.userInChange.id);
+    promise.then(function(){
+      $scope.userInChange = {};
       console.log($scope.userInChange);
-    // var promise = $http.put('/users/user/change',$scope.userInChange,$scope.userInChange.id);
-    // promise.then(function(){
-    //   $scope.userInChange = {};
-    //   console.log($scope.userInChange);
-    // }).catch(function(error){
-    //   console.log(error);
-    // });
+    }).catch(function(error){
+      console.log(error);
+    });
   };
 
   $scope.deleteUser = function(user){
