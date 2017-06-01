@@ -5,7 +5,7 @@
 <label for="search" class="UserlabelSearch" >Procurar :</label>
 <input type="text" name="search" class = "UserinputSearch" ng-model="filtro">
 
-<button type="button" name="button" class="btnNewClient" ng-click='newUser()'>Novo Usuario</button>
+<button type="button" name="button" class="btnNewClient" ng-click='openNewUser()'>Novo Usuario</button>
 
 <table class="table">
   <thead>
@@ -20,11 +20,12 @@
       <tr ng-repeat="user in users|filter: filtro">
         <td id = "td">{{user.first_name +" "+  user.last_name}}</td>
         <td id = "td">{{user.email}}</td>
-        <td id = "td"><button type="button" name="button" class="alterButtom" ng-click='updateUser()'>Alterar</button></td>
+        <td id = "td"><button type="button" name="button" class="alterButtom" ng-click='openUpdateUserModal(user)'>Alterar</button></td>
         <td id = "td"><button type="button" name="button" class="deleteButtom" ng-click='deleteUser(user)'>Remover</button></td>
     </tr>
   </tbody>
 </table>
 <!-- <div ng-include="'partials/updateUserModal.html'" ></div> -->
 <div ng-include="'partials/newUserModal.html'" ></div>
+<div ng-include="'partials/updateUserModal.html'" ></div>
 <div ng-include="'js/directives/impulseFooter.html'"></div>

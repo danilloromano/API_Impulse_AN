@@ -2,7 +2,7 @@ angular.module('impulseApp').controller('UserController',function($scope,$http,$
 
   $scope.users = [];
   $scope.novoUser = {};
-  $scope.newUserAddress = {};
+  $scope.userInEdition = {};
 	$scope.filtro = '';
   $scope.showUpdateUserModal = false;
   $scope.showNewUserModal = false;
@@ -10,14 +10,31 @@ angular.module('impulseApp').controller('UserController',function($scope,$http,$
   $scope.novoUser.active = {
     value : true
   };
+  $scope.userInEdition.active = {
+    value : true
+  };
+
+
+$scope.change = function(){
+  $scope.userInEdition.active.value = 0;
+};
+
 
   function pegaCheck(){
     objeto = $scope.novoUser.active.value;
     valorX = objeto.value;
-    console.log("funcionei");
+    console.log($scope.novoUser.active);
     console.log(valorX);
     return objeto;
   };
+
+  // function pegaCheckUpdate(){
+  //   objeto = $scope.userInEdition.active.value;
+  //   valorX = objeto.value;
+  //   console.log("funcionei");
+  //   console.log(valorX);
+  //   return objeto;
+  // };
 
   var promise = $http.get('/usersData');
   promise.then(function(result){
@@ -26,25 +43,28 @@ angular.module('impulseApp').controller('UserController',function($scope,$http,$
     console.log(error);
   });
 
-  $scope.updateUser = function(user){
+  $scope.openUpdateUserModal = function(user){
+    $scope.Open = true;
     $scope.showUpdateUserModal = true;
-    $scope.isOpen = true;
     $scope.userInEdition = user;
   };
 
-    $scope.closeModal = function($event,element) {
-    $scope.showUpdateUserModal = false;
-    };
-
-  $scope.newUser = function(){
-    $scope.isOpen = true;
-    $scope.showNewUserModal = true;
+  $scope.closeUpdateUserModal = function(){
+    $scope.Open = false;
+    setTimeout( function() {
+      $scope.showUpdateUserModal = false;
+    }, 500)
   };
 
-  $scope.close = function(){
-    $scope.novoUser = "";
+  $scope.openNewUser = function(){
+    $scope.isOpen = true;
+    $scope.showNewUserModal = true;
+    // $scope.novoProduto = {};
+  };
+
+  $scope.closeNewUser = function(){
     $scope.isOpen = false;
-    setTimeout(function() {
+    setTimeout( function() {
       $scope.showNewUserModal = false;
     }, 500)
   };
@@ -68,23 +88,23 @@ angular.module('impulseApp').controller('UserController',function($scope,$http,$
     });
   };
 
-  $scope.changeUser = function(novoUser){
-    console.log(novoUser);
+  $scope.changeUser = function(userInEdition) {
+    console.log(userInEdition);
     $scope.userInChange = {
-      first_name: novoUser.first_name,
-      last_name: novoUser.last_name,
-      email: novoUser.email,
-      password: novoUser.password,
-      active: novoUser.active,
+      first_name: userInEdition.first_name,
+      last_name: userInEdition.last_name,
+      email: userInEdition.email,
+      password: userInEdition.password,
+      active: userInEdition.active
     };
-
-    var promise = $http.put('/users/user/change',$scope.userInChange,$scope.userInChange.id);
-    promise.then(function(){
-      $scope.userInChange = {};
       console.log($scope.userInChange);
-    }).catch(function(error){
-      console.log(error);
-    });
+    // var promise = $http.put('/users/user/change',$scope.userInChange,$scope.userInChange.id);
+    // promise.then(function(){
+    //   $scope.userInChange = {};
+    //   console.log($scope.userInChange);
+    // }).catch(function(error){
+    //   console.log(error);
+    // });
   };
 
   $scope.deleteUser = function(user){
