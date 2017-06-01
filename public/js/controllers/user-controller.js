@@ -92,7 +92,9 @@ $scope.change = function(){
   };
 
   $scope.changeUser = function(userInEdition) {
-    // console.log(userInEdition);
+    let id = $scope.userInEdition.id;
+    console.log(id);
+
     $scope.userInChange = {
       first_name: userInEdition.first_name,
       last_name: userInEdition.last_name,
@@ -101,9 +103,8 @@ $scope.change = function(){
       // active: userInEdition.active
     };
       // console.log($scope.userInChange);
-    var promise = $http.put('/user/change',$scope.userInChange,$scope.userInChange.id);
+    var promise = $http.put('/user/change/' + id ,$scope.userInChange);
     promise.then(function(){
-      $scope.userInChange = {};
       console.log($scope.userInChange);
     }).catch(function(error){
       console.log(error);

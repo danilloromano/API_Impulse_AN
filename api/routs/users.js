@@ -42,7 +42,7 @@ module.exports = function(app) {
     connection.end();
   });
 
-  app.put('/user/change',function(req,res){
+  app.put('/user/change/:id',function(req,res){
     var error = req.validationErrors();
 
     if (error) {
@@ -50,18 +50,20 @@ module.exports = function(app) {
       res.status(400).send(error);
       return;
     }
+    let id = req.params.id;
+    let user = req.body;
 
-    var user = req.body;
-    var rg = user.rg;
+    console.log(user);
+    console.log(id);
     var connection = app.DAO.connection();
     var userDao = new app.DAO.userDao(connection);
 
-    userDao.changeUser(user,rg,function(error,result){
+    userDao.changeUser(user,id,function(error,result){
       if (error) {
         console.log(error);
         res.status(500).send(error)
       }
-      console.log('user criado');
+      console.log('user alterado');
       res.status(202).json(result);
     });
     connection.end();
