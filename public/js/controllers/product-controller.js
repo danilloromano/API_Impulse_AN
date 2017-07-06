@@ -84,7 +84,7 @@ function generateTotalLucro(){
 
   $scope.closeUpdateProductModal = function(){
     $scope.Open = false;
-    setTimeout( function() {
+    setTimeout(function() {
       $scope.showUpdateProductModal = false;
     }, 500)
   }
@@ -117,11 +117,11 @@ function generateTotalLucro(){
       lucro: generateProfit(novoProduto.venda,novoProduto.custo,novoProduto.quantidade),
       data:convertDate(new Date())
     };
-      console.log(productInSave);
       var promise = $http.post('/products/newProduct', productInSave);
       promise.then(function(){
       $scope.lucroTotal += productInSave.lucro;
       $scope.products.push(productInSave);
+      $scope.novoProduto = {};
       }).catch(function(error){
         console.log(error);
       });

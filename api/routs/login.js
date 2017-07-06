@@ -1,11 +1,12 @@
 module.exports = function(app) {
 
-  app.post('/login',function(req,res){
+  app.post('/autentica', function(req, res) {
+
     let error = req.validationErrors();
 
     if (error) {
       console.log("erros encontrados na validacao de usuario");
-      res.status(400).send(error);
+      res.status(404).send(error);
       return;
     }
 
@@ -14,7 +15,6 @@ module.exports = function(app) {
     let loginDao =  new app.DAO.loginDao(connection);
 
     loginDao.searchUser(params,function(error,result) {
-      console.log(params);
       console.log(result);
 
       if (error) {
@@ -27,24 +27,18 @@ module.exports = function(app) {
       if (result.length === 0) {
         let algumaCoisa = {email:"a",password:"a"};
         result.push(algumaCoisa);
-        console.log(result);
-        console.log("paddou no primeiro if");
+        res.status(401).send(error);
+        console.log("erro encontrado no login");
       }
 
       if(params[0] === result[0].email && params[1] === result[0].password ) {
-        console.log("isso ai porra");
-        res.status(200).json(result);
-        connection.end();
+          console.log("usuario logado");
+          res.redirect("/#!/home");
       } else  {
           console.log("Erro ao logar, usuario ou senha invalida");
-          return;
+          res.status(500).send(error);
           connection.end();
-        }
-      // res.status(200).json(result);
+        };
     });
-    // connection.end();
   });
-
-
-
 }

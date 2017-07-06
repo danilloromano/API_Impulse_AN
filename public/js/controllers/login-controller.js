@@ -4,8 +4,9 @@ angular.module('impulseApp').controller('LoginController',function($scope,$http,
   $scope.message = "";
 
   $scope.login = function() {
-    var promise = $http.post('/login',$scope.user);
+    var promise = $http.post('/autentica',$scope.user);
     promise.then(function(){
+      console.log("passou aqui");
       $window.location.href = "/#!/home";
     }).catch(function(error){
         $scope.message = "Usuario ou senha invalida";

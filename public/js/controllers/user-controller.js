@@ -31,14 +31,6 @@ $scope.change = function(){
     return objeto;
   };
 
-  // function pegaCheckUpdate(){
-  //   objeto = $scope.userInEdition.active.value;
-  //   valorX = objeto.value;
-  //   console.log("funcionei");
-  //   console.log(valorX);
-  //   return objeto;
-  // };
-
   var promise = $http.get('/usersData');
   promise.then(function(result){
     $scope.users = result.data;
@@ -62,7 +54,6 @@ $scope.change = function(){
   $scope.openNewUser = function(){
     $scope.isOpen = true;
     $scope.showNewUserModal = true;
-    // $scope.novoProduto = {};
   };
 
   $scope.closeNewUser = function(){
@@ -73,7 +64,6 @@ $scope.change = function(){
   };
 
   $scope.save = function(novoUser){
-    console.log($scope.novoUser);
     $scope.userInSave = {
       first_name: novoUser.first_name,
       last_name: novoUser.last_name,
@@ -82,10 +72,10 @@ $scope.change = function(){
       active: pegaCheck(),
     };
 
-    console.log($scope.userInSave);
     var promise = $http.post('/users/newUser', $scope.userInSave);
     promise.then(function(){
       $scope.users.push($scope.userInSave);
+      $scope.novoUser = {};
     }).catch(function(error){
       console.log(error);
     });
@@ -100,12 +90,11 @@ $scope.change = function(){
       last_name: userInEdition.last_name,
       email: userInEdition.email,
       password: userInEdition.password,
-      // active: userInEdition.active
     };
-      // console.log($scope.userInChange);
     var promise = $http.put('/user/change/' + id ,$scope.userInChange);
     promise.then(function(){
       console.log($scope.userInChange);
+      $scope.userInChange = {};
     }).catch(function(error){
       console.log(error);
     });
@@ -113,9 +102,7 @@ $scope.change = function(){
 
   $scope.deleteUser = function(user){
     var id = user.id;
-    console.log(id);
     var userIndex = $scope.users.indexOf(user);
-    console.log(userIndex);
     $scope.users.splice(userIndex, 1);
     var promise = $http.delete('/users/deleteUser/'+id);
       promise.then(function(){

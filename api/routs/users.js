@@ -1,4 +1,3 @@
-
 module.exports = function(app) {
 
   app.get('/usersData', function(req, res){
@@ -12,7 +11,9 @@ module.exports = function(app) {
         res.status(500).send(error);
         return;
       }
+
       res.status(200).send(JSON.stringify(result));
+      console.log(result);
     });
     connection.end();
   });
