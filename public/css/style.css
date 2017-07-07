@@ -8,6 +8,12 @@
 #urso-nav {
   height: 50px; }
 
+.messageLogin{
+  color: red;
+  margin-left: 42%;
+  margin-top: 10px;
+}
+
 .lista-nav {
   margin: 0px;
   padding: 0px;
