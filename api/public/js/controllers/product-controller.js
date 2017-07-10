@@ -83,8 +83,7 @@ function generateTotalLucro(){
   }
 
   $scope.closeUpdateProductModal = function(){
-      $scope.productInEdition.validade = convertDate($scope.productInEdition.validade);
-    // product.validade = convertDate(product.validade);
+    $scope.productInEdition.validade = convertDate($scope.productInEdition.validade);
     $scope.Open = false;
     setTimeout(function() {
       $scope.showUpdateProductModal = false;

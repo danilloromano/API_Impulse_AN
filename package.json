@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "back-end api for system",
   "main": "index.js",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp": "gulp"
+    "start" : "node index.js"
   },
   "keywords": [
     "api"
   ],
-  "author": "Danillo Romano and Eduardo Henrrique",
+  "author": "Danillo Romano",
   "license": "ISC",
   "dependencies": {
     "angular-input-masks": "^2.5.0",
