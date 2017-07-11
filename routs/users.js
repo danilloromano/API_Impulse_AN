@@ -1,7 +1,6 @@
 module.exports = function(app) {
 
   app.get('/usersData', function(req, res){
-    console.log('Recebido os users do get');
     var connection = app.DAO.connection();
     var userDao = new app.DAO.userDao(connection);
     var user = [];

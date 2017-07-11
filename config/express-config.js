@@ -5,15 +5,15 @@ var expressValidator = require('express-validator');
 
 module.exports = function(){
   var app = express();
-  app.use(express.static('./api/public'));
+  app.use(express.static('./public'));
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
   app.use(expressValidator());
 
 
   consign()
-   .include('api/routs')
-   .then('api/DAO')
+   .include('DAO')
+   .then('routs')
    .into(app);
 
   return app;

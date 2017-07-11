@@ -11,7 +11,7 @@ module.exports = function(app) {
     }
 
     let params = [req.body.email,req.body.password];
-    let connection = app.DAO.connection();
+    var connection = app.DAO.connection();
     let loginDao =  new app.DAO.loginDao(connection);
 
     loginDao.searchUser(params,function(error,result) {
