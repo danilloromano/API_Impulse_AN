@@ -12,11 +12,11 @@ function createDBConnection(){
         });
     }
     if(process.env.NODE_ENV == 'production') {
-      var urlDeConexao = proces.env.CLEARDB_DATABASE_URL;
-      var grupos = urlDeConexao.match(/mysql:\/\/(.*):(.*):@(.*)\/(.*)\?reconnect=true/);
+      // var urlDeConexao = proces.env.CLEARDB_DATABASE_URL;
+      // var grupos = urlDeConexao.match(/mysql:\/\/(.*):(.*):@(.*)\/(.*)\?reconnect=true/);
         return mysql.createConnection({
-            // host: 'us-cdbr-iron-east-03.cleardb.net',
-            host: grupos[3],
+            host: 'us-cdbr-iron-east-03.cleardb.net',
+            // host: grupos[3],
             user: 'b47a2aab68dcf6',
             password: '64ce4623',
             database: 'heroku_8a96551247824ef'
