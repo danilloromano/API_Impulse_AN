@@ -1,11 +1,13 @@
-var http = require('http');
-var app = require('./api/config/express-config.js')();
 
-http.createServer(app).listen(3000, function(){
-  console.log('Servidor rodando na porta 3000.');
+var app = require('./api/config/express-config.js')();
+var http = require('http').Server(app);
+var porta = process.env.PORT || 3000;
+
+http.createServer(app).listen(porta, function(){
+  console.log('Servidor rodando');
 });
 
 app.get('/',function(req,res){
-  console.log('Recebida requisicao na porta 3000.');
+  console.log('Recebida requisicao');
   res.send('index.html');
 });
