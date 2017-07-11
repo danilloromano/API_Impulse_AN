@@ -12,7 +12,7 @@ function createDBConnection(){
         });
     }
     if(process.env.NODE_ENV == 'production') {
-      var urlDeConexao == proces.env.CLEARDB_DATABASE_URL;
+      var urlDeConexao = proces.env.CLEARDB_DATABASE_URL;
       var grupos = urlDeConexao.match(/mysql:\/\/(.*):(.*):@(.*)\/(.*)\?reconnect=true/);
         return mysql.createConnection({
             // host: 'us-cdbr-iron-east-03.cleardb.net',
