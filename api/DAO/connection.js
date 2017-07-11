@@ -11,17 +11,16 @@ function createDBConnection(){
                 database:'immpulse_php'
         });
     }
-    if(process.env.NODE_ENV == 'production') {
-      // var urlDeConexao = proces.env.CLEARDB_DATABASE_URL;
-      // var grupos = urlDeConexao.match(/mysql:\/\/(.*):(.*):@(.*)\/(.*)\?reconnect=true/);
-        return mysql.createConnection({
-            host: 'us-cdbr-iron-east-03.cleardb.net',
-            // host: grupos[3],
-            user: 'b47a2aab68dcf6',
-            password: '64ce4623',
-            database: 'heroku_8a96551247824ef'
-        });
-    }
+    if (process.env.NODE_ENV == 'production') {
+		var url = process.env.CLEARDB_DATABASE_URL;
+		var grupos = url.match(/mysql:\/\/(.*):(.*)@(.*)\/(.*)\?/);
+		return mysql.createConnection({
+			host:grupos[3],
+			user:grupos[1],
+			password:grupos[2],
+			database:grupos[4]
+		});
+	}
 }
 
 module.exports = function() {
