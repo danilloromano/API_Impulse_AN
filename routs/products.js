@@ -64,16 +64,17 @@ module.exports = function(app){
     }
 
     var novoProduto = req.body;
+    console.log(novoProduto);
     var connection = app.DAO.connection();
     var productDao =  new app.DAO.productDao(connection);
 
     productDao.saveProduct(novoProduto,function(error,result){
       if (error) {
         console.log(error);
-        res.status(500).send(error)
+        return res.status(404).send(error)
       }
       console.log('Produto criado');
-      res.status(201).json(result);
+      return res.status(201).json(result);
     });
     connection.end();
   });
