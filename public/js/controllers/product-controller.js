@@ -104,7 +104,7 @@ function generateTotalLucro(){
   }
 
   $scope.saveProduct = function(novoProduto) {
-
+// a
 
     let productInSave = {
       nome: novoProduto.nome,
@@ -127,7 +127,6 @@ function generateTotalLucro(){
         console.log(error);
       });
   }
-// asdasdas/
     $scope.deleteProduct = function(product){
       var id = product.id;
       var productIndex = $scope.products.indexOf(product);
