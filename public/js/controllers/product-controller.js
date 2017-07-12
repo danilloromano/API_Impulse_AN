@@ -104,7 +104,6 @@ function generateTotalLucro(){
   }
 
   $scope.saveProduct = function(novoProduto) {
-// a
 
     let productInSave = {
       nome: novoProduto.nome,
@@ -119,7 +118,8 @@ function generateTotalLucro(){
       data:convertDate(new Date())
     };
       var promise = $http.post('/products/newProduct', productInSave);
-      promise.then(function(){
+      promise.then(function() {
+        console.log(productInSave);
       $scope.lucroTotal += productInSave.lucro;
       $scope.products.push(productInSave);
       $scope.novoProduto = {};
