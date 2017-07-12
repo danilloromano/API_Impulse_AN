@@ -107,14 +107,14 @@ function generateTotalLucro(){
 
 
     let productInSave = {
-      nome: verifyImputString(novoProduto.nome),
-      marca: verifyImputString(novoProduto.marca),
-      custo: verifyImputNumber(novoProduto.custo),
-      venda: verifyImputNumber(novoProduto.venda),
+      nome: novoProduto.nome,
+      marca: novoProduto.marca,
+      custo: novoProduto.custo,
+      venda: novoProduto.venda,
       validade: convertDate(novoProduto.validade),
       categoria_id: novoProduto.categoria_id,
-      descricao: verifyImputString(novoProduto.descricao),
-      quantidade:verifyImputNumber(novoProduto.quantidade) ,
+      descricao: novoProduto.descricao,
+      quantidade:novoProduto.quantidade,
       lucro: generateProfit(novoProduto.venda,novoProduto.custo,novoProduto.quantidade),
       data:convertDate(new Date())
     };
