@@ -127,7 +127,7 @@ function generateTotalLucro(){
         console.log(error);
       });
   }
-
+// asdasdas/
     $scope.deleteProduct = function(product){
       var id = product.id;
       var productIndex = $scope.products.indexOf(product);
