@@ -123,7 +123,7 @@ function generateTotalLucro(){
       $scope.lucroTotal += productInSave.lucro;
       $scope.products.push(productInSave);
       // productInsave = {};
-      // $scope.novoProduto = {};
+      $scope.novoProduto = {};
       }).catch(function(error){
         console.log(error);
       });

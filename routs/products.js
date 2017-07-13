@@ -72,9 +72,11 @@ module.exports = function(app){
       if (error) {
         console.log(error);
         return res.status(404).send(error)
+        connection.end();
       }
       console.log('Produto criado');
       return res.status(201).json(result);
+      connection.end();
     });
     connection.end();
   });
