@@ -10,7 +10,6 @@ productDao.prototype.list = function(product,callback) {
 
 productDao.prototype.listByData = function(data,report,callback) {
     this._connection.query("select nome,marca,lucro from produtos where data = ?",[data,report],callback);
-    console.log(this._connection.query);
 }
 
 productDao.prototype.listCategory = function(category,callback) {
@@ -19,12 +18,10 @@ productDao.prototype.listCategory = function(category,callback) {
 
 productDao.prototype.saveProduct = function(novoProduto,callback) {
     this._connection.query('INSERT INTO produtos SET ?',novoProduto, callback);
-    console.log(this._connection.query);
 }
 
 productDao.prototype.updateProduct = function(Produto,id,callback) {
     this._connection.query("UPDATE produtos set ? WHERE id = ? ",[Produto,id], callback);
-    console.log(this._connection.query);
 }
 
 productDao.prototype.deleteProduct = function(id,callback) {

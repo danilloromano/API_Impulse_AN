@@ -64,7 +64,6 @@ module.exports = function(app){
     }
 
     var novoProduto = req.body;
-    console.log(novoProduto);
     var connection = app.DAO.connection();
     var productDao =  new app.DAO.productDao(connection);
 
@@ -109,7 +108,6 @@ module.exports = function(app){
   app.put('/products/updateProduct/:id',function(req,res){
     let id = req.params.id;
     let Produto = req.body;
-    console.log(Produto);
     var connection = app.DAO.connection();
     var productDao =  new app.DAO.productDao(connection);
       productDao.updateProduct(Produto,id,function(error,result){

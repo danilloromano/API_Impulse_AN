@@ -12,7 +12,6 @@ module.exports = function(app) {
       }
 
       res.status(200).send(JSON.stringify(result));
-      console.log(result);
     });
     connection.end();
   });
@@ -27,7 +26,6 @@ module.exports = function(app) {
     }
 
     var novoUser = req.body;
-    console.log(novoUser);
     var connection = app.DAO.connection();
     var userDao =  new app.DAO.userDao(connection);
 
@@ -52,9 +50,6 @@ module.exports = function(app) {
     }
     let id = req.params.id;
     let user = req.body;
-
-    console.log(user);
-    console.log(id);
     var connection = app.DAO.connection();
     var userDao = new app.DAO.userDao(connection);
 

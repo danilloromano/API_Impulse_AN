@@ -48,7 +48,6 @@ angular.module('impulseApp').controller('ProductController',function($scope,$htt
 
 
   function verifyImputNumber(number) {
-    console.log(typeof number,number);
     if( number === '' || angular.isNumber(number) !== true) {
       insertErrorMessage("Por favor preencha o campo corretamnete");
       return;
@@ -119,10 +118,9 @@ function generateTotalLucro(){
     };
       var promise = $http.post('/products/newProduct', productInSave);
       promise.then(function() {
-        console.log(productInSave);
       $scope.lucroTotal += productInSave.lucro;
       $scope.products.push(productInSave);
-    
+
       $scope.novoProduto = {};
       }).catch(function(error){
         console.log(error);

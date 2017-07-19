@@ -26,8 +26,6 @@ $scope.change = function(){
   function pegaCheck(){
     objeto = $scope.novoUser.active.value;
     valorX = objeto.value;
-    console.log($scope.novoUser.active);
-    console.log(valorX);
     return objeto;
   };
 
@@ -83,7 +81,6 @@ $scope.change = function(){
 
   $scope.changeUser = function(userInEdition) {
     let id = $scope.userInEdition.id;
-    console.log(id);
 
     $scope.userInChange = {
       first_name: userInEdition.first_name,
@@ -93,7 +90,6 @@ $scope.change = function(){
     };
     var promise = $http.put('/user/change/' + id ,$scope.userInChange);
     promise.then(function(){
-      console.log($scope.userInChange);
       $scope.userInChange = {};
     }).catch(function(error){
       console.log(error);
