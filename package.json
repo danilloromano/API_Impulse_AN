@@ -4,6 +4,10 @@
   "description": "back-end api for system",
   "main": "index.js",
 
+  "engines":{
+  "node" : "6.10.3"
+  },
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start" : "node index.js"
