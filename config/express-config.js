@@ -9,7 +9,7 @@ module.exports = function(){
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
   app.use(expressValidator());
-
+  var connection = app.DAO.connection();
 
   consign()
    .include('DAO')
