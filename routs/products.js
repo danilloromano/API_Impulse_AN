@@ -70,7 +70,7 @@ module.exports = function(app){
     productDao.saveProduct(novoProduto,function(error,result){
       if (error) {
         console.log(error);
-        return res.status(404).send(error)
+        return res.status(404).send(error);
       }
       console.log('Produto criado');
       return res.status(201).json(result);
