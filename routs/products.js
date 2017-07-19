@@ -60,11 +60,10 @@ module.exports = function(app){
     productDao.saveProduct(novoProduto,function(error,result){
       if (error) {
         return res.status(404).send(error);
-        connection.end();
       }
-      return res.status(201).json(result);
-      connection.end();
+      return res.status(201);//.json(result);
     });
+    connection.end();
   });
 
   app.delete('/products/deleteProduct/:id',function(req,res){
