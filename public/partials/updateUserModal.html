@@ -2,8 +2,8 @@
 <form ng-submit="changeUser(userInEdition)">
   <div class="containerModal">
       <div class="new_form-group --flex">
-        <label class="labelFolrm" for="first_name">Nome :</label>
-        <input type="text" class="imputForm" name="first_name" placeholder="Nome do Cliente" ng-model="userInEdition.first_name">
+        <label class="labelFolrm" for="name">Nome :</label>
+        <input type="text" class="imputForm" name="name" placeholder="Nome do Cliente" ng-model="userInEdition.name">
       </div>
 
       <div class="new_form-group --flex">
@@ -20,11 +20,6 @@
         <label class="labelFolrm" for="password">Senha :</label>
         <input type="password" class="imputForm" name="password" placeholder="Senha" ng-model="userInEdition.password">
       </div>
-
-      <!-- <div class="new_form-group --flex">
-        <label class="labelFolrm" for="active">Status :</label>
-        <input type="checkbox" name="active" id="check"  ng-model="userInEdition.active.value">
-      </div> -->
 
       <div>
         <button type="submit" name="button" class="changeButtom">Salvar</button>

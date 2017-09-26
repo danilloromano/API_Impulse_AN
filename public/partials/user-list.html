@@ -18,7 +18,7 @@
   </thead>
     <tbody class="linhaTabela">
       <tr ng-repeat="user in users|filter: filtro">
-        <td id = "td">{{user.first_name +" "+  user.last_name}}</td>
+        <td id = "td">{{user.name +" "+  user.last_name}}</td>
         <td id = "td">{{user.email}}</td>
         <td id = "td"><button type="button" name="button" class="alterButtom" ng-click='openUpdateUserModal(user)'>Alterar</button></td>
         <td id = "td"><button type="button" name="button" class="deleteButtom" ng-click='deleteUser(user)'>Remover</button></td>

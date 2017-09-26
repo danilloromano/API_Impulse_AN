@@ -29,7 +29,7 @@ $scope.change = function(){
     return objeto;
   };
 
-  var promise = $http.get('/usersData');
+  var promise = $http.get('/userData');
   promise.then(function(result){
     $scope.users = result.data;
   }).catch(function(error){
@@ -63,7 +63,7 @@ $scope.change = function(){
 
   $scope.save = function(novoUser){
     $scope.userInSave = {
-      first_name: novoUser.first_name,
+      name: novoUser.name,
       last_name: novoUser.last_name,
       email: novoUser.email,
       password: novoUser.password,
@@ -83,7 +83,7 @@ $scope.change = function(){
     let id = $scope.userInEdition.id;
 
     $scope.userInChange = {
-      first_name: userInEdition.first_name,
+      name: userInEdition.name,
       last_name: userInEdition.last_name,
       email: userInEdition.email,
       password: userInEdition.password,

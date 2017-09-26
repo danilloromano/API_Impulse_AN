@@ -1,6 +1,6 @@
 module.exports = function(app) {
 
-  app.get('/usersData', function(req, res){
+  app.get('/userData', function(req, res){
     var connection = app.DAO.connection();
     var userDao = new app.DAO.userDao(connection);
     var user = [];
